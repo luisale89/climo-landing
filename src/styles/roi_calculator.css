@@ -286,6 +286,7 @@
   font-size: 1.6rem;
   font-weight: 800;
   color: var(--climo-navy);
+  width: 160px;
 }
 
 .payback-value span {

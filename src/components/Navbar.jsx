@@ -10,7 +10,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       // Oculta/Muestra la barra superior y ajusta sombra al scrolear más de 30px
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 0 ? true : false);
     };
     window.addEventListener("scroll", handleScroll);
 

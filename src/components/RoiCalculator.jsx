@@ -11,13 +11,13 @@ export default function RoiCalculator() {
 
   // Cálculos dinámicos
   const totalEquipos = sedes * equiposPorSede;
-  const ahorroMantenimientoMes = totalEquipos * mantenimiento * 0.3;
-  const ahorroEnergiaMes = totalEquipos * energia * 0.15;
+  const ahorroMantenimientoMes = totalEquipos * mantenimiento * 0.25;
+  const ahorroEnergiaMes = totalEquipos * energia * 0.1;
   const ahorroMesTotal = ahorroMantenimientoMes + ahorroEnergiaMes;
   const ahorroBrutoAno = ahorroMesTotal * 12;
 
   // Escenario de tarifa SaaS según volumen de flota
-  const tarifaSaas = totalEquipos >= 20 ? 10 : 12;
+  const tarifaSaas = totalEquipos >= 30 ? 6 : 12;
   const setupFeeInicial = totalEquipos * 120;
   const costoSaasAnual = totalEquipos * tarifaSaas * 12;
 
@@ -25,15 +25,20 @@ export default function RoiCalculator() {
 
   // Cálculo de Payback en meses
   const paybackMeses =
-    ahorroMesTotal > 0 ? (setupFeeInicial / ahorroMesTotal).toFixed(1) : "0";
+    ahorroMesTotal > 0
+      ? (
+          setupFeeInicial /
+          (ahorroMesTotal - tarifaSaas * totalEquipos)
+        ).toFixed(1)
+      : "0";
 
   const handleSliderChange = (setter, value, paramName) => {
     setter(value);
-    trackEvent("roi_calculator_interacted", {
-      parametro: paramName,
-      nuevo_valor: value,
-      flota_total: totalEquipos,
-    });
+    // trackEvent("roi_calculator_interacted", {
+    //   parametro: paramName,
+    //   nuevo_valor: value,
+    //   flota_total: totalEquipos,
+    // });
   };
 
   return (
@@ -135,8 +140,7 @@ export default function RoiCalculator() {
                   className="custom-slider teal-slider"
                 />
                 <div className="slider-meta">
-                  <span>$0 (Sin costo)</span>
-                  <span>Impacto estimado: 30% ahorro por condición</span>
+                  <span>Impacto estimado: 25% ahorro por mantenimiento</span>
                 </div>
               </div>
 
@@ -151,8 +155,8 @@ export default function RoiCalculator() {
                 </div>
                 <input
                   type="range"
-                  min="50"
-                  max="500"
+                  min="90"
+                  max="600"
                   step="10"
                   value={energia}
                   onChange={(e) =>
@@ -165,8 +169,7 @@ export default function RoiCalculator() {
                   className="custom-slider purple-slider"
                 />
                 <div className="slider-meta">
-                  <span>$0 (Sin costo)</span>
-                  <span>Impacto estimado: 15% ahorro por ocupación</span>
+                  <span>Impacto estimado: 10% ahorro por optimización</span>
                 </div>
               </div>
 
@@ -192,14 +195,14 @@ export default function RoiCalculator() {
               {/* Sub-tarjetas de ahorro mensual */}
               <div className="ahorros-mini-grid">
                 <div className="mini-card">
-                  <small>Ahorro Mantenimiento (30%)</small>
+                  <small>Ahorro Mantenimiento (25%)</small>
                   <div className="mini-amount">
                     ${Math.round(ahorroMantenimientoMes)} <span>/mes</span>
                   </div>
                   <span className="mini-subtext">Por servicio condicional</span>
                 </div>
                 <div className="mini-card">
-                  <small>Ahorro Energético (15%)</small>
+                  <small>Ahorro Energético (10%)</small>
                   <div className="mini-amount purple-text">
                     ${Math.round(ahorroEnergiaMes)} <span>/mes</span>
                   </div>
@@ -217,7 +220,7 @@ export default function RoiCalculator() {
                   <small>USD / año</small>
                 </div>
                 <div className="hero-card-footer">
-                  <span>Ahorro Neto Año 1 (incluye Setup Fee):</span>
+                  <span>Ahorro Neto Año 1 (Descontando instalación):</span>
                   <strong>
                     ${Math.round(ahorroNetoAno1).toLocaleString("en-US")} USD
                   </strong>
