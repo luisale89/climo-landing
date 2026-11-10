@@ -66,7 +66,7 @@ export default function Hero() {
             <a href="#contacto" className="btn-primary btn-large">
               Solicitar Demo Piloto
             </a>
-            <a href="#roi-calculator" className="btn-secondary btn-large">
+            <a href="#roi" className="btn-secondary btn-large">
               Calcular ROI de mi Flota
             </a>
           </div>

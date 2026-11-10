@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ArrowRight, Activity, LogIn } from "lucide-react";
 // import { trackEvent } from '../utils/analytics';
 import "../styles/navbar.css";
 
@@ -7,18 +8,17 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    // 1. Detectar si el Navbar debe tener sombra al bajar
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      // Oculta/Muestra la barra superior y ajusta sombra al scrolear más de 30px
+      setIsScrolled(window.scrollY > 30);
     };
     window.addEventListener("scroll", handleScroll);
 
-    // 2. Configurar IntersectionObserver para los enlaces activos
     const sectionIds = [
       "tecnologia",
       "modelos",
-      "roi",
       "precios",
+      "roi",
       "faq",
       "contacto",
     ];
@@ -28,11 +28,11 @@ export default function Navbar() {
 
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -60% 0px", // Activa la sección cuando pasa por el tercio superior
+      rootMargin: "-20% 0px -60% 0px",
       threshold: 0,
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    let observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
@@ -50,65 +50,97 @@ export default function Navbar() {
 
   const handleNavClick = (sectionId) => {
     setActiveSection(sectionId);
-    trackEvent("navbar_link_clicked", { target_section: sectionId });
+    // trackEvent("navbar_link_clicked", { target_section: sectionId });
+  };
+
+  const handleLoginClick = () => {
+    // trackEvent("login_button_clicked");
+    // Aquí puedes redirigir a tu app de plataforma (ej. window.location.href = 'https://app.climo.io')
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
-      <div className="container nav-container">
-        {/* Logo */}
-        <a href="#" className="nav-logo">
-          CLIMO<span>.</span>
-        </a>
+    <header className={`header-wrapper ${isScrolled ? "scrolled" : ""}`}>
+      {/* 🚀 Top Bar Secundaria (Desaparece al scrolear) */}
+      <div className="top-utility-bar">
+        <div className="container top-bar-container">
+          <div className="app-status-indicator">
+            <span className="status-pulse-dot" />
+            <Activity size={14} className="status-icon" />
+            <span>
+              App Climo: <strong>ONLINE</strong>
+            </span>
+          </div>
 
-        {/* Enlaces de Navegación */}
-        <div className="nav-links">
-          <a
-            href="#tecnologia"
-            className={`nav-link ${activeSection === "tecnologia" ? "active" : ""}`}
-            onClick={() => handleNavClick("tecnologia")}
-          >
-            Tecnología IoT
+          <div className="top-bar-actions">
+            <button onClick={handleLoginClick} className="top-login-btn">
+              <LogIn size={14} />
+              <span>Iniciar Sesión en la App</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* 🧭 Navbar Principal */}
+      <nav className="navbar">
+        <div className="nav-container">
+          {/* Logo Corporativo */}
+          <a href="#" className="nav-logo-wrapper">
+            <div className="nav-logo-title">
+              CLI<span>M</span>O
+            </div>
+            <div className="nav-logo-subtitle">CLIMATIZACIÓN INTELIGENTE</div>
           </a>
+
+          {/* Enlaces de Navegación */}
+          <div className="nav-links">
+            <a
+              href="#tecnologia"
+              className={`nav-link ${activeSection === "tecnologia" ? "active" : ""}`}
+              onClick={() => handleNavClick("tecnologia")}
+            >
+              Tecnología IoT
+            </a>
+            <a
+              href="#modelos"
+              className={`nav-link ${activeSection === "modelos" ? "active" : ""}`}
+              onClick={() => handleNavClick("modelos")}
+            >
+              Modelos de Servicio
+            </a>
+            <a
+              href="#roi"
+              className={`nav-link ${activeSection === "roi" ? "active" : ""}`}
+              onClick={() => handleNavClick("roi")}
+            >
+              Calculadora ROI
+            </a>
+            <a
+              href="#precios"
+              className={`nav-link ${activeSection === "precios" ? "active" : ""}`}
+              onClick={() => handleNavClick("precios")}
+            >
+              Precios
+            </a>
+            <a
+              href="#faq"
+              className={`nav-link ${activeSection === "faq" ? "active" : ""}`}
+              onClick={() => handleNavClick("faq")}
+            >
+              Preguntas Frecuentes
+            </a>
+          </div>
+
+          {/* Botón CTA Principal */}
           <a
-            href="#modelos"
-            className={`nav-link ${activeSection === "modelos" ? "active" : ""}`}
-            onClick={() => handleNavClick("modelos")}
+            href="#contacto"
+            className="nav-btn-cta"
+            onClick={() => handleNavClick("contacto")}
           >
-            Modelos de Servicio
-          </a>
-          <a
-            href="#roi"
-            className={`nav-link ${activeSection === "roi" ? "active" : ""}`}
-            onClick={() => handleNavClick("roi")}
-          >
-            Calculadora ROI
-          </a>
-          <a
-            href="#precios"
-            className={`nav-link ${activeSection === "precios" ? "active" : ""}`}
-            onClick={() => handleNavClick("precios")}
-          >
-            Precios
-          </a>
-          <a
-            href="#faq"
-            className={`nav-link ${activeSection === "faq" ? "active" : ""}`}
-            onClick={() => handleNavClick("faq")}
-          >
-            FAQ
+            <span>Solicitar Demo</span>
+            <ArrowRight size={16} />
           </a>
         </div>
-
-        {/* Botón CTA Navbar */}
-        <a
-          href="#contacto"
-          className={`nav-btn-cta ${activeSection === "contacto" ? "active" : ""}`}
-          onClick={() => handleNavClick("contacto")}
-        >
-          Demo Piloto
-        </a>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

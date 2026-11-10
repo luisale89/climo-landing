@@ -1,51 +1,172 @@
-.navbar {
+/* Contenedor general pegado arriba */
+.header-wrapper {
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  border-bottom: 1px solid transparent;
-  padding: 1rem 0;
 }
 
-.navbar.scrolled {
-  background: rgba(255, 255, 255, 0.98);
-  border-bottom-color: var(--border-light);
-  box-shadow: var(--shadow-sm);
+/* 🚀 Estilos de la Top Bar Secundaria */
+.top-utility-bar {
+  background: var(--climo-navy);
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding: 0.45rem 0;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease,
+    padding 0.3s ease;
+  max-height: 40px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+/* Punto verde parpadeante de estatus online */
+.status-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.status-icon {
+  color: var(--climo-teal);
+}
+
+.top-login-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0.85;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
+  padding: 0.1rem 0;
+}
+
+.top-login-btn:hover {
+  opacity: 1;
+  color: var(--climo-teal);
+}
+
+/* 🧭 Navbar Principal */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.3s ease;
   padding: 0.5rem 0;
+}
+
+/* Estado al scrolear: Oculta la barra superior y deja el navbar fijo con sombra */
+.header-wrapper.scrolled .top-utility-bar {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  border-bottom: none;
+}
+
+.header-wrapper.scrolled .navbar {
+  box-shadow: var(--shadow-sm);
+  background: rgba(255, 255, 255, 0.98);
 }
 
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.1rem 1.5rem;
+  padding: 0.5rem 3rem;
 }
 
+/* Logo Corporativo */
+.nav-logo-wrapper {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-logo-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--climo-navy);
+  line-height: 1;
+}
+
+.nav-logo-title span {
+  color: var(--climo-purple);
+}
+
+.nav-logo-subtitle {
+  font-size: 0.5rem;
+  font-weight: 800;
+  color: var(--climo-navy);
+  letter-spacing: 0.8px;
+  margin-top: 0.3rem;
+}
+
+/* Enlaces */
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.75rem;
   align-items: center;
 }
 
 .nav-link {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--climo-navy);
   text-decoration: none;
   position: relative;
-  padding: 0.4rem 0;
+  padding: 0.3rem 0;
   transition: color 0.2s ease;
 }
 
 .nav-link:hover {
-  color: var(--climo-navy);
+  color: var(--climo-teal);
 }
 
-/* 🌟 Estado Activo: Cambia el color e inserta una barra inferior teal */
 .nav-link.active {
   color: var(--climo-teal);
   font-weight: 700;
@@ -62,20 +183,41 @@
   border-radius: 2px;
 }
 
+/* Botón CTA Navbar */
 .nav-btn-cta {
-  background: var(--climo-navy);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(90deg, #0e4276 0%, #0e7b78 60%, #532379 100%);
   color: #ffffff;
-  padding: 0.6rem 1.25rem;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
+  padding: 0.65rem 1.2rem;
+  border-radius: 0.6rem;
+  font-size: 0.88rem;
   font-weight: 700;
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(14, 66, 118, 0.2);
   transition:
-    background 0.2s ease,
+    opacity 0.2s ease,
     transform 0.2s ease;
 }
 
-.nav-btn-cta:hover,
-.nav-btn-cta.active {
-  background: var(--climo-teal);
+.nav-btn-cta:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* 📱 Media Queries para Móviles */
+@media (max-width: 1024px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-utility-bar {
+    font-size: 0.72rem;
+  }
+  .top-login-btn span {
+    display: none; /* En pantallas muy pequeñas oculta el texto y deja solo el icono de login */
+  }
 }
