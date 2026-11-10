@@ -126,7 +126,7 @@ export default function Navbar() {
               className={`nav-link ${activeSection === "faq" ? "active" : ""}`}
               onClick={() => handleNavClick("faq")}
             >
-              Preguntas Frecuentes
+              FAQ
             </a>
           </div>
 

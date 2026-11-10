@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import HeroTelemetryCard from "./TelemetryCard";
+import { Zap, ArrowRight, Sliders, CheckCircle2 } from "lucide-react";
+// import { trackEvent } from "../utils/analytics";
 import "../styles/hero.css";
 
 const CLIENT_TYPES = [
@@ -7,7 +9,6 @@ const CLIENT_TYPES = [
   "Centros Comerciales",
   "Hoteles",
   "Edificios Corporativos",
-  "Universidades",
   "Industrias",
   "Supermercados",
 ];
@@ -39,12 +40,17 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, textIndex]);
 
+  const handleCtaClick = (actionName) => {
+    trackEvent("hero_cta_clicked", { action: actionName });
+  };
+
   return (
-    <section className="hero-section section-padding container">
-      <div className="hero-layout">
-        {/* Columna Izquierda: Copy de Ventas */}
+    <section className="hero-section">
+      <div className="container hero-container">
+        {/* Columna Izquierda: Copy de Ventas & Typewriter */}
         <div className="hero-content">
-          <div className="hero-badge">
+          <div className="hero-top-badge">
+            <Zap size={15} className="badge-icon" />
             <span>Inteligencia IoT para:</span>
             <strong className="typewriter-text">
               {displayText}
@@ -53,26 +59,55 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-title">
-            Deje de pagar mantenimientos a ciegas y de enfriar espacios vacíos
+            Deje de gastar en mantenimientos a ciegas y de climatizar{" "}
+            <span className="highlight-teal">espacios</span>{" "}
+            <span className="highlight-purple">vacíos.</span>
           </h1>
 
-          <p className="hero-subtitle">
-            Transforme el gasto fijo de sus equipos HVAC y refrigeración en una
-            inversión optimizada. Sincronice la operación con la ocupación real
-            y carga térmica de sus sedes.
+          <p className="hero-description">
+            Transforme el gasto fijo de sus equipos de climatización y
+            refrigeración en una inversión optimizada. Ajuste la operación de su
+            flota a la <strong>ocupación real y carga térmica</strong>, pasando
+            de mantenimientos por calendario a un esquema por condición.
           </p>
 
           <div className="hero-cta-group">
-            <a href="#contacto" className="btn-primary btn-large">
-              Solicitar Demo Piloto
+            <a
+              href="#contacto"
+              className="hero-btn-primary"
+              onClick={() => handleCtaClick("Solicitar Demo Piloto")}
+            >
+              <span>Solicitar Demo Piloto</span>
+              <ArrowRight size={18} />
             </a>
-            <a href="#roi" className="btn-secondary btn-large">
-              Calcular ROI de mi Flota
+
+            <a
+              href="#roi"
+              className="hero-btn-secondary"
+              onClick={() => handleCtaClick("Calcular Ahorro")}
+            >
+              <Sliders size={18} className="icon-teal" />
+              <span>Calcular ROI de mi Flota</span>
             </a>
+          </div>
+
+          <div className="hero-features-list">
+            <div className="hero-feature-item">
+              <CheckCircle2 size={16} className="check-icon" />
+              <span>Sin interrupción operativa</span>
+            </div>
+            <div className="hero-feature-item">
+              <CheckCircle2 size={16} className="check-icon" />
+              <span>Mantenimiento por condición real</span>
+            </div>
+            <div className="hero-feature-item">
+              <CheckCircle2 size={16} className="check-icon" />
+              <span>Monitoreo 24/7 centralizado</span>
+            </div>
           </div>
         </div>
 
-        {/* Columna Derecha: Tarjeta de Telemetría IoT */}
+        {/* Columna Derecha: Tarjeta de Telemetría IoT modular */}
         <div className="hero-visual">
           <HeroTelemetryCard />
         </div>

@@ -37,17 +37,6 @@
   opacity: 0.95;
 }
 
-/* Punto verde parpadeante de estatus online */
-.status-pulse-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #10b981;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
-  animation: pulse-green 2s infinite;
-}
-
 @keyframes pulse-green {
   0% {
     transform: scale(0.95);
@@ -117,6 +106,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 3rem;
+  max-width: 2000px;
+  margin: 0 auto;
 }
 
 /* Logo Corporativo */

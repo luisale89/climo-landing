@@ -1,51 +1,64 @@
 import React from "react";
+import { Users, Thermometer, ShieldCheck } from "lucide-react";
 import "../styles/telemetry-card.css";
 
-export default function HeroTelemetryCard() {
+export default function TelemetryCard() {
   return (
     <div className="telemetry-card">
-      {/* Header de la tarjeta con estado de conexión */}
+      {/* Cabecera de la tarjeta */}
       <div className="telemetry-header">
-        <div className="telemetry-node-info">
-          <span className="status-dot online"></span>
-          <span className="node-id">Nodo IoT #042 — Tienda Principal</span>
+        <div className="telemetry-title-area">
+          <span className="status-pulse-dot" />
+          <h4>Sede Caracas - Unidad #4</h4>
         </div>
-        <span className="telemetry-live-badge">EN VIVO</span>
+        <span className="live-badge">OPERATIVO</span>
       </div>
 
-      {/* Grid con métricas de sensores en tiempo real */}
-      <div className="telemetry-grid">
-        <div className="telemetry-metric-box">
-          <small className="metric-label">Temp. Ambiente</small>
-          <div className="metric-value">22.4 °C</div>
-          <span className="metric-sub">Set-point: 23.0 °C</span>
+      {/* Grid superior de métricas */}
+      <div className="telemetry-metrics-grid">
+        <div className="metric-box">
+          <div className="metric-label">
+            <Users size={14} className="icon-teal" />
+            <span>Ocupación Espacio</span>
+          </div>
+          <div className="metric-value teal-text">
+            38% <small>Afluencia</small>
+          </div>
+          <span className="metric-sub">Consigna modulada a 23.5ºC</span>
         </div>
 
-        <div className="telemetry-metric-box">
-          <small className="metric-label">Carga / Ocupación</small>
-          <div className="metric-value text-teal">Alta (82%)</div>
-          <span className="metric-sub">Matriz Térmica Activa</span>
-        </div>
-
-        <div className="telemetry-metric-box">
-          <small className="metric-label">Compresor HVAC</small>
-          <div className="metric-value text-navy">Modulando (65%)</div>
-          <span className="metric-sub">Consumo: 3.2 kW</span>
-        </div>
-
-        <div className="telemetry-metric-box">
-          <small className="metric-label">Estado de Salud</small>
-          <div className="metric-value text-purple">Óptimo (100%)</div>
-          <span className="metric-sub">Mantenimiento: Ok</span>
+        <div className="metric-box">
+          <div className="metric-label">
+            <Thermometer size={14} className="icon-navy" />
+            <span>Temp. Ambiente</span>
+          </div>
+          <div className="metric-value navy-text">22.8 ºC</div>
+          <span className="metric-sub">Confort Óptimo</span>
         </div>
       </div>
 
-      {/* Footer de la tarjeta con ahorro acumulado */}
-      <div className="telemetry-footer">
-        <div className="saving-indicator">
-          <span>Ahorro energético proyectado hoy:</span>
-          <strong>+18.4%</strong>
+      {/* Barra de Salud Mecánica */}
+      <div className="mechanical-health-box">
+        <div className="health-header">
+          <span>Salud Mecánica del sistema</span>
+          <strong className="health-green">98% (Óptimo)</strong>
         </div>
+        <div className="progress-bar-container">
+          <div className="progress-bar-fill" style={{ width: "98%" }} />
+        </div>
+        <p className="health-footer-text">
+          Próxima intervención estimada:{" "}
+          <strong>315 horas de uso del compresor</strong>{" "}
+        </p>
+      </div>
+
+      {/* Footer de la tarjeta */}
+      <div className="telemetry-card-footer">
+        <ShieldCheck size={16} className="icon-teal" />
+        <span>
+          Control por ocupación activo:{" "}
+          <strong>Eficiencia energética optimizada</strong>
+        </span>
       </div>
     </div>
   );
