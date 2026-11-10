@@ -1,0 +1,113 @@
+.problems-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+
+.problems-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--climo-teal);
+  background: rgba(19, 155, 151, 0.1);
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.problems-header .section-title {
+  font-size: 2.25rem;
+  color: var(--climo-navy);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.problems-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Grid de 2x2 para pantallas grandes */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.info-card {
+  text-align: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+}
+
+/* Estilos de colores personalizados para los fondos de los iconos */
+.icon-blue {
+  background: rgba(14, 66, 118, 0.08);
+}
+.icon-teal {
+  background: rgba(19, 155, 151, 0.1);
+}
+.icon-purple {
+  background: rgba(83, 35, 121, 0.08);
+}
+.icon-red {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.info-card h3 {
+  font-size: 1.35rem;
+  color: var(--climo-navy);
+  font-weight: 800;
+  margin-bottom: 0.85rem;
+  line-height: 1.3;
+}
+
+.info-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* 📱 Media Query para Tablets y Móviles (Pasa a 1 columna) */
+@media (max-width: 1024px) {
+  .problems-header .section-title {
+    font-size: 1.75rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+  }
+}

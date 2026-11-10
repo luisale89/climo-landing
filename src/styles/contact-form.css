@@ -1,0 +1,215 @@
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 1.5rem;
+  padding: 3.5rem 3rem;
+  box-shadow: var(--shadow-md);
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.contact-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 3rem auto;
+}
+
+.contact-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--climo-navy);
+  background: rgba(14, 66, 118, 0.08);
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+  letter-spacing: 1px;
+}
+
+.contact-header .section-title {
+  font-size: 2.25rem;
+  color: var(--climo-navy);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.contact-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Grid del Formulario */
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--climo-navy);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.6rem;
+}
+
+.label-icon {
+  color: var(--climo-teal);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  background: var(--bg-body);
+  border: 1px solid var(--border-light);
+  border-radius: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--climo-navy);
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-input::placeholder {
+  color: #a0aec0;
+}
+
+.form-input:focus {
+  border-color: var(--climo-teal);
+  box-shadow: 0 0 0 3px rgba(19, 155, 151, 0.12);
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%200E4276' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  padding-right: 2.5rem;
+}
+
+/* Tarjetas Radio de Modelo de Interés */
+.model-radio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.radio-card {
+  background: var(--bg-body);
+  border: 1px solid var(--border-light);
+  border-radius: 0.75rem;
+  padding: 1.1rem 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.radio-card:hover {
+  border-color: var(--climo-teal);
+}
+
+.radio-card.selected {
+  border: 2px solid var(--climo-navy);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.radio-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--climo-navy);
+}
+
+.radio-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.radio-card.selected .radio-circle {
+  border-color: var(--climo-navy);
+}
+
+.radio-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--climo-navy);
+}
+
+/* Botón CTA Gradiente */
+.btn-submit-cta {
+  width: 100%;
+  padding: 1.1rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: linear-gradient(90deg, #0e4276 0%, #0e7b78 50%, #532379 100%);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(14, 66, 118, 0.25);
+  margin-top: 0.5rem;
+}
+
+.btn-submit-cta:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+/* 📱 Media Queries (Móviles y Tablets) */
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-form-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-group.full-width {
+    grid-column: span 1;
+  }
+
+  .model-radio-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .contact-header .section-title {
+    font-size: 1.75rem;
+  }
+
+  .btn-submit-cta {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+}

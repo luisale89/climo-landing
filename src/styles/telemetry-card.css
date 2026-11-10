@@ -1,0 +1,120 @@
+.telemetry-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow:
+    0 20px 25px -5px rgba(14, 66, 118, 0.1),
+    0 8px 10px -6px rgba(14, 66, 118, 0.05);
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.telemetry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.telemetry-node-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.online {
+  background-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.node-id {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--climo-navy);
+}
+
+.telemetry-live-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--climo-teal);
+  background: rgba(19, 155, 151, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.telemetry-metric-box {
+  background: var(--bg-body);
+  padding: 0.85rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.metric-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.metric-value.text-teal {
+  color: var(--climo-teal);
+}
+.metric-value.text-navy {
+  color: var(--climo-navy);
+}
+.metric-value.text-purple {
+  color: var(--climo-purple);
+}
+
+.metric-sub {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+.telemetry-footer {
+  background: rgba(83, 35, 121, 0.04);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(83, 35, 121, 0.1);
+}
+
+.saving-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--climo-purple);
+  font-weight: 600;
+}
+
+.saving-indicator strong {
+  font-size: 1rem;
+  font-weight: 800;
+}

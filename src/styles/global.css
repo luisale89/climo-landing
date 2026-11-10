@@ -1,0 +1,151 @@
+@import "./variables.css";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* Clases Utilitarias Globales */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-padding {
+  padding: 5rem 0;
+}
+
+.bg-subtle {
+  background-color: var(--bg-subtle);
+}
+
+/* Transiciones suaves generales */
+a,
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--climo-navy);
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-top: "1.5rem";
+  font-size: "0.8rem";
+  color: "var(--text-light)";
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-padding {
+  padding: 5rem 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: rgba(19, 155, 151, 0.1);
+  color: var(--climo-teal);
+  border: 1px solid rgba(19, 155, 151, 0.2);
+}
+
+.btn-primary {
+  background-color: var(--climo-navy);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--climo-navy);
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--climo-navy);
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+.btn-large {
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: #0b345d;
+  transform: translateY(-4px);
+}
+
+/* Media Queries para Tablets y Móviles */
+@media (max-width: 768px) {
+  /* Oculta los enlaces largos en móvil para no saturar el header */
+  .nav-links {
+    display: none;
+  }
+
+  /* Ajuste de tipografía en el Hero para pantallas pequeñas */
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  /* Apilar botones del Hero de forma vertical */
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-large {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Reducción de paddings en la Calculadora ROI para pantallas estrechas */
+  .calculator-card {
+    padding: 1.25rem;
+  }
+
+  .result-amount {
+    font-size: 1.4rem;
+  }
+}

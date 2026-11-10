@@ -1,0 +1,198 @@
+.models-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.models-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--climo-teal);
+  background: rgba(19, 155, 151, 0.1);
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.models-header .section-title {
+  font-size: 2.25rem;
+  color: var(--climo-navy);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.models-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Layout del Grid */
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.model-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 1.25rem;
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.model-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Etiqueta superior flotante en la tarjeta destacada */
+.model-card.featured {
+  border: 2px solid var(--climo-teal);
+  box-shadow: var(--shadow-lg);
+}
+
+.floating-badge {
+  position: absolute;
+  top: -14px;
+  right: 24px;
+  background: linear-gradient(
+    135deg,
+    var(--climo-teal) 0%,
+    var(--climo-purple) 100%
+  );
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(14, 66, 118, 0.15);
+}
+
+/* Chips superiores */
+.model-chip {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+.chip-blue {
+  color: var(--climo-navy);
+  background: rgba(14, 66, 118, 0.08);
+}
+
+.chip-teal {
+  color: var(--climo-teal);
+  background: rgba(19, 155, 151, 0.1);
+}
+
+.model-card h3 {
+  font-size: 1.6rem;
+  color: var(--climo-navy);
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.model-description {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.model-description strong {
+  color: var(--climo-navy);
+}
+
+/* Lista con íconos Check */
+.model-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.model-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.check-icon {
+  color: var(--climo-teal);
+  flex-shrink: 0;
+}
+
+/* Botones de selección */
+.btn-model {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--climo-navy);
+  color: var(--climo-navy);
+}
+
+.btn-outline:hover {
+  background: var(--climo-navy);
+  color: #ffffff;
+}
+
+.btn-filled {
+  background: linear-gradient(135deg, #0e7b78 0%, var(--climo-purple) 100%);
+  border: none;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(14, 66, 118, 0.2);
+}
+
+.btn-filled:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* 📱 Media Queries (Tablets y Móviles) */
+@media (max-width: 992px) {
+  .models-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .model-card {
+    padding: 2.5rem 1.75rem 2rem 1.75rem;
+  }
+
+  .models-header .section-title {
+    font-size: 1.75rem;
+  }
+}

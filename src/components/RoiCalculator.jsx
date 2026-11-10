@@ -1,0 +1,248 @@
+import React, { useState } from "react";
+import { Sliders, Wrench, Zap, Info } from "lucide-react";
+// import { trackEvent } from '../utils/analytics';
+import "../styles/roi_calculator.css";
+
+export default function RoiCalculator() {
+  const [sedes, setSedes] = useState(5);
+  const [equiposPorSede, setEquiposPorSede] = useState(4);
+  const [mantenimiento, setMantenimiento] = useState(100);
+  const [energia, setEnergia] = useState(250);
+
+  // Cálculos dinámicos
+  const totalEquipos = sedes * equiposPorSede;
+  const ahorroMantenimientoMes = totalEquipos * mantenimiento * 0.3;
+  const ahorroEnergiaMes = totalEquipos * energia * 0.15;
+  const ahorroMesTotal = ahorroMantenimientoMes + ahorroEnergiaMes;
+  const ahorroBrutoAno = ahorroMesTotal * 12;
+
+  // Escenario de tarifa SaaS según volumen de flota
+  const tarifaSaas = totalEquipos >= 20 ? 10 : 12;
+  const setupFeeInicial = totalEquipos * 120;
+  const costoSaasAnual = totalEquipos * tarifaSaas * 12;
+
+  const ahorroNetoAno1 = ahorroBrutoAno - (setupFeeInicial + costoSaasAnual);
+
+  // Cálculo de Payback en meses
+  const paybackMeses =
+    ahorroMesTotal > 0 ? (setupFeeInicial / ahorroMesTotal).toFixed(1) : "0";
+
+  const handleSliderChange = (setter, value, paramName) => {
+    setter(value);
+    trackEvent("roi_calculator_interacted", {
+      parametro: paramName,
+      nuevo_valor: value,
+      flota_total: totalEquipos,
+    });
+  };
+
+  return (
+    <section id="roi" className="section-padding bg-subtle">
+      <div className="container">
+        {/* Encabezado */}
+        <div className="roi-header">
+          <span className="roi-badge">ESTIMACIÓN FINANCIERA</span>
+          <h2 className="section-title">
+            Calculadora de Retorno de Inversión (ROI)
+          </h2>
+          <p className="roi-subtitle">
+            Ajuste los valores de su flota para proyectar los ahorros al
+            integrar la solución CLIMO.
+          </p>
+        </div>
+
+        {/* Tarjeta Contenedora Principal */}
+        <div className="roi-main-card">
+          <div className="roi-grid">
+            {/* Columna Izquierda: Parámetros de su Red */}
+            <div className="roi-column left-col">
+              <div className="column-title">
+                <Sliders size={20} className="icon-teal" />
+                <h3>Parámetros de su Red</h3>
+              </div>
+
+              {/* Slider 1: Número de Sedes */}
+              <div className="slider-group">
+                <div className="slider-label">
+                  <span>Número de Sedes / Tiendas:</span>
+                  <div className="value-box">{sedes} sedes</div>
+                </div>
+                <input
+                  type="range"
+                  min="1"
+                  max="30"
+                  value={sedes}
+                  onChange={(e) =>
+                    handleSliderChange(
+                      setSedes,
+                      Number(e.target.value),
+                      "sedes",
+                    )
+                  }
+                  className="custom-slider teal-slider"
+                />
+              </div>
+
+              {/* Slider 2: Equipos por Sede */}
+              <div className="slider-group">
+                <div className="slider-label">
+                  <span>Equipos HVAC/Refrigeración por sede:</span>
+                  <div className="value-box">{equiposPorSede} equipos</div>
+                </div>
+                <input
+                  type="range"
+                  min="1"
+                  max="20"
+                  value={equiposPorSede}
+                  onChange={(e) =>
+                    handleSliderChange(
+                      setEquiposPorSede,
+                      Number(e.target.value),
+                      "equipos_por_sede",
+                    )
+                  }
+                  className="custom-slider teal-slider"
+                />
+              </div>
+
+              <div className="flota-summary">
+                Flota total a monitorear:{" "}
+                <strong>{totalEquipos} equipos</strong>
+              </div>
+
+              {/* Slider 3: Gasto Mantenimiento */}
+              <div className="slider-group">
+                <div className="slider-label title-with-icon">
+                  <div className="label-with-icon">
+                    <Wrench size={16} className="icon-teal" />
+                    <span>Gasto Mensual Mantenimiento p/equipo:</span>
+                  </div>
+                  <div className="value-box">${mantenimiento} USD</div>
+                </div>
+                <input
+                  type="range"
+                  min="20"
+                  max="300"
+                  step="10"
+                  value={mantenimiento}
+                  onChange={(e) =>
+                    handleSliderChange(
+                      setMantenimiento,
+                      Number(e.target.value),
+                      "mantenimiento",
+                    )
+                  }
+                  className="custom-slider teal-slider"
+                />
+                <div className="slider-meta">
+                  <span>$0 (Sin costo)</span>
+                  <span>Impacto estimado: 30% ahorro por condición</span>
+                </div>
+              </div>
+
+              {/* Slider 4: Gasto Energético */}
+              <div className="slider-group">
+                <div className="slider-label title-with-icon">
+                  <div className="label-with-icon">
+                    <Zap size={16} className="icon-purple" />
+                    <span>Gasto Mensual Energético p/equipo:</span>
+                  </div>
+                  <div className="value-box">${energia} USD</div>
+                </div>
+                <input
+                  type="range"
+                  min="50"
+                  max="500"
+                  step="10"
+                  value={energia}
+                  onChange={(e) =>
+                    handleSliderChange(
+                      setEnergia,
+                      Number(e.target.value),
+                      "energia",
+                    )
+                  }
+                  className="custom-slider purple-slider"
+                />
+                <div className="slider-meta">
+                  <span>$0 (Sin costo)</span>
+                  <span>Impacto estimado: 15% ahorro por ocupación</span>
+                </div>
+              </div>
+
+              {/* Nota Aclaratoria */}
+              <div className="info-box">
+                <Info size={28} className="info-icon" />
+                <p>
+                  El cálculo utiliza el costo estándar de implementación
+                  ($120/eq) y tarifa base ($12/mes). Para flotas de mayor
+                  volumen, la cuota mensual se reduce hasta a{" "}
+                  <strong>un 50% por equipo</strong>.
+                </p>
+              </div>
+            </div>
+
+            {/* Columna Derecha: Proyección de Ahorro Neto */}
+            <div className="roi-column right-col">
+              <div className="column-title flex-between">
+                <h3>Proyección de Ahorro Neto</h3>
+                <span className="resumen-tag">Resumen de Flota</span>
+              </div>
+
+              {/* Sub-tarjetas de ahorro mensual */}
+              <div className="ahorros-mini-grid">
+                <div className="mini-card">
+                  <small>Ahorro Mantenimiento (30%)</small>
+                  <div className="mini-amount">
+                    ${Math.round(ahorroMantenimientoMes)} <span>/mes</span>
+                  </div>
+                  <span className="mini-subtext">Por servicio condicional</span>
+                </div>
+                <div className="mini-card">
+                  <small>Ahorro Energético (15%)</small>
+                  <div className="mini-amount purple-text">
+                    ${Math.round(ahorroEnergiaMes)} <span>/mes</span>
+                  </div>
+                  <span className="mini-subtext">Por control de ocupación</span>
+                </div>
+              </div>
+
+              {/* Tarjeta Principal Ahorro Bruto (Gradiente) */}
+              <div className="hero-saving-card">
+                <span className="hero-card-tag">
+                  AHORRO BRUTO GENERADO FLOTA
+                </span>
+                <div className="hero-card-amount">
+                  ${ahorroBrutoAno.toLocaleString("en-US")}{" "}
+                  <small>USD / año</small>
+                </div>
+                <div className="hero-card-footer">
+                  <span>Ahorro Neto Año 1 (incluye Setup Fee):</span>
+                  <strong>
+                    ${Math.round(ahorroNetoAno1).toLocaleString("en-US")} USD
+                  </strong>
+                </div>
+              </div>
+
+              {/* Tiempo de Retorno */}
+              <div className="payback-box">
+                <div>
+                  <h4>Tiempo de Retorno de Inversión (Payback):</h4>
+                  <p>Recuperación del costo de instalación inicial</p>
+                </div>
+                <div className="payback-value">
+                  ~{paybackMeses} <span>meses</span>
+                </div>
+              </div>
+
+              {/* Botón CTA */}
+              <a href="#contacto" className="btn-roi-cta">
+                Validar estas cifras en una Demo Piloto
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

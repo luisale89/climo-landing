@@ -1,0 +1,147 @@
+.pricing-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.pricing-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--climo-teal);
+  background: rgba(19, 155, 151, 0.1);
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.pricing-header .section-title {
+  font-size: 2.25rem;
+  color: var(--climo-navy);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.pricing-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.icon-blue {
+  background: rgba(14, 66, 118, 0.08);
+}
+.icon-teal {
+  background: rgba(19, 155, 151, 0.1);
+}
+
+.icon-navy {
+  color: var(--climo-navy);
+}
+.icon-teal-color {
+  color: var(--climo-teal);
+}
+
+.pricing-chip {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--climo-navy);
+  background: rgba(14, 66, 118, 0.06);
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.teal-chip {
+  color: var(--climo-teal);
+  background: rgba(19, 155, 151, 0.1);
+}
+
+.price-amount {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--climo-navy);
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.price-amount small {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.pricing-card p {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.pricing-card p strong {
+  color: var(--climo-navy);
+}
+
+/* 📱 Media Queries para Móviles y Tablets */
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .pricing-card {
+    padding: 1.75rem;
+  }
+
+  .pricing-header .section-title {
+    font-size: 1.75rem;
+  }
+
+  .price-amount {
+    font-size: 1.85rem;
+  }
+}

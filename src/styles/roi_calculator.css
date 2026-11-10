@@ -1,0 +1,345 @@
+.roi-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+
+.roi-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--climo-teal);
+  background: rgba(19, 155, 151, 0.1);
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.roi-header .section-title {
+  font-size: 2.25rem;
+  color: var(--climo-navy);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.roi-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Tarjeta contenedora principal */
+.roi-main-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.roi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.roi-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.column-title.flex-between {
+  justify-content: space-between;
+}
+
+.column-title h3 {
+  font-size: 1.25rem;
+  color: var(--climo-navy);
+  font-weight: 800;
+}
+
+.resumen-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--climo-teal);
+}
+
+/* Sliders y Etiquetas */
+.slider-group {
+  margin-bottom: 1.75rem;
+}
+
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--climo-navy);
+}
+
+.label-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.value-box {
+  background: rgba(14, 66, 118, 0.05);
+  color: var(--climo-navy);
+  font-weight: 800;
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.custom-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background: #e2e8f0;
+}
+
+.custom-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.teal-slider {
+  accent-color: var(--climo-teal);
+}
+.teal-slider::-webkit-slider-thumb {
+  background: var(--climo-teal);
+}
+
+.purple-slider {
+  accent-color: var(--climo-purple);
+}
+.purple-slider::-webkit-slider-thumb {
+  background: var(--climo-purple);
+}
+
+.flota-summary {
+  font-size: 0.85rem;
+  color: var(--climo-navy);
+  margin: -0.5rem 0 1.75rem 0;
+}
+
+.slider-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 0.4rem;
+}
+
+.info-box {
+  background: rgba(14, 66, 118, 0.04);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.info-icon {
+  color: var(--climo-navy);
+  flex-shrink: 0;
+}
+
+.info-box p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* Columna Derecha (Ahorros) */
+.ahorros-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mini-card {
+  background: var(--bg-body);
+  border: 1px solid var(--border-light);
+  border-radius: 0.85rem;
+  padding: 1.25rem;
+}
+
+.mini-card small {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.mini-amount {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--climo-teal);
+}
+
+.mini-amount.purple-text {
+  color: var(--climo-purple);
+}
+
+.mini-amount span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.mini-subtext {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+/* Tarjeta Hero de Ahorro Bruto */
+.hero-saving-card {
+  background: linear-gradient(135deg, #0e7b78 0%, #1a365d 50%, #532379 100%);
+  border-radius: 1rem;
+  padding: 1.75rem 2rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(14, 66, 118, 0.2);
+}
+
+.hero-card-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.hero-card-amount {
+  font-size: 2.75rem;
+  font-weight: 800;
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1;
+}
+
+.hero-card-amount small {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.hero-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 0.85rem;
+  font-size: 0.85rem;
+  opacity: 0.95;
+}
+
+/* Payback Box */
+.payback-box {
+  background: var(--bg-body);
+  border: 1px solid var(--border-light);
+  border-radius: 0.85rem;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+
+.payback-box h4 {
+  font-size: 0.88rem;
+  color: var(--climo-navy);
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+}
+
+.payback-box p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.payback-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--climo-navy);
+}
+
+.payback-value span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Botón CTA */
+.btn-roi-cta {
+  display: block;
+  width: 100%;
+  background: var(--climo-navy);
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-roi-cta:hover {
+  background: #092c50;
+  transform: translateY(-2px);
+}
+
+/* Iconos auxiliares */
+.icon-teal {
+  color: var(--climo-teal);
+}
+.icon-purple {
+  color: var(--climo-purple);
+}
+
+/* 📱 Media Queries (Móviles y Tablets) */
+@media (max-width: 992px) {
+  .roi-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .roi-main-card {
+    padding: 1.5rem;
+  }
+
+  .hero-card-amount {
+    font-size: 2.2rem;
+  }
+
+  .ahorros-mini-grid {
+    grid-template-columns: 1fr;
+  }
+}
