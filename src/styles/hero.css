@@ -17,18 +17,34 @@
   align-items: center;
   gap: 0.2rem;
   font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--climo-navy);
-  background: rgba(14, 66, 118, 0.06);
-  border: 1px solid rgba(14, 66, 118, 0.1);
-  padding: 0.35rem 0.85rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  background: rgba(19, 155, 151, 0.15);
+  border: 1px solid rgba(19, 155, 151, 0.4);
+  padding: 0.4rem 0.95rem;
   border-radius: 50px;
   margin-bottom: 1.5rem;
   letter-spacing: 0.5px;
+  backdrop-filter: blur(8px); /* Efecto cristal esmerilado */
+  box-shadow: 0 0 20px rgba(19, 155, 151, 0.15);
 }
 
-.badge-icon {
+.hero-top-badge .badge-icon {
+  color: var(--climo-teal); /* Icono en color Teal brillante */
+}
+
+.hero-top-badge .typewriter-text {
+  color: #2dd4bf; /* Texto dinámico en un tono Teal luminoso muy legible */
+  font-size: 1rem;
+  font-weight: 700;
+  margin-left: 0.35rem;
+}
+
+.hero-top-badge .cursor {
+  animation: blink 1s infinite;
+  font-weight: 400;
   color: var(--climo-teal);
+  margin-left: 2px;
 }
 
 /* Título */
@@ -132,19 +148,6 @@
   color: var(--climo-teal);
 }
 
-.typewriter-text {
-  color: var(--climo-navy);
-  margin-left: 0.35rem;
-  font-size: 1.25rem;
-}
-
-.cursor {
-  animation: blink 1s infinite;
-  font-weight: 400;
-  color: var(--climo-teal);
-  margin-left: 2px;
-}
-
 @keyframes blink {
   0%,
   100% {
@@ -175,4 +178,74 @@
     width: 100%;
     justify-content: center;
   }
+}
+
+.hero-section {
+  position: relative;
+  background: linear-gradient(
+    120deg,
+    #0b132b 10%,
+    #0e4276 80%
+  ); /* Fondo Navy profundo para el Hero */
+  color: #ffffff;
+  padding: 5rem 0;
+  overflow: hidden;
+}
+
+/* Patrón de malla animado de fondo */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(
+    rgba(19, 155, 151, 0.5) 1px,
+    transparent 1.5px
+  );
+  background-size: 20px 20px;
+  animation: moveGrid 5s linear infinite;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+@keyframes moveGrid {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-20px, -20px);
+  }
+}
+
+/* Aseguramos que el contenido esté sobre la animación */
+.hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Ajuste de textos en el Hero para fondo oscuro */
+.hero-section .hero-title {
+  color: #ffffff;
+}
+
+.hero-section .hero-title .highlight-teal {
+  color: #2dd4bf;
+}
+
+.hero-section .hero-title .highlight-purple {
+  color: #c084fc;
+}
+
+.hero-section .hero-description {
+  color: #94a3b8;
+}
+
+.hero-section .hero-description strong {
+  color: #ffffff;
+}
+
+.hero-section .hero-feature-item {
+  color: #e2e8f0;
 }

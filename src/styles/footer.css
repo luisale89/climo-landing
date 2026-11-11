@@ -1,5 +1,5 @@
 .footer-section {
-  background: var(--climo-navy);
+  background: linear-gradient(45deg, #0b132b 10%, #0e4276 80%);
   color: #ffffff;
   padding: 4.5rem 0 2rem 0;
   font-size: 0.9rem;
