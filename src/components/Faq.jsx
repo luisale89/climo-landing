@@ -61,45 +61,47 @@ export default function Faq() {
   return (
     <section id="faq" className="section-padding container">
       {/* Encabezado */}
-      <div className="faq-header">
-        <span className="faq-badge">PREGUNTAS FRECUENTES</span>
-        <h2 className="section-title">Dudas Técnicas & de Instalación</h2>
-        <p className="faq-subtitle">
-          Respuestas para Directores de Operaciones y Gerentes de Mantenimiento
-          Comercial.
-        </p>
-      </div>
+      <div className="container">
+        <div className="faq-header">
+          <span className="faq-badge">PREGUNTAS FRECUENTES</span>
+          <h2 className="section-title">Dudas Técnicas & de Instalación</h2>
+          <p className="faq-subtitle">
+            Respuestas para Directores de Operaciones y Gerentes de
+            Mantenimiento Comercial.
+          </p>
+        </div>
 
-      {/* Lista de Acordeones */}
-      <div className="faq-list">
-        {faqData.map((item, index) => {
-          const isOpen = activeIndex === index;
-          return (
-            <div key={index} className={`faq-card ${isOpen ? "active" : ""}`}>
-              <button
-                className="faq-question-bar"
-                onClick={() => handleToggle(index, item.question)}
-                aria-expanded={isOpen}
-              >
-                <div className="faq-q-left">
-                  <HelpCircle size={20} className="faq-question-icon" />
-                  <span>{item.question}</span>
-                </div>
-                {isOpen ? (
-                  <ChevronUp size={18} className="faq-arrow" />
-                ) : (
-                  <ChevronDown size={18} className="faq-arrow" />
+        {/* Lista de Acordeones */}
+        <div className="faq-list">
+          {faqData.map((item, index) => {
+            const isOpen = activeIndex === index;
+            return (
+              <div key={index} className={`faq-card ${isOpen ? "active" : ""}`}>
+                <button
+                  className="faq-question-bar"
+                  onClick={() => handleToggle(index, item.question)}
+                  aria-expanded={isOpen}
+                >
+                  <div className="faq-q-left">
+                    <HelpCircle size={20} className="faq-question-icon" />
+                    <span>{item.question}</span>
+                  </div>
+                  {isOpen ? (
+                    <ChevronUp size={18} className="faq-arrow" />
+                  ) : (
+                    <ChevronDown size={18} className="faq-arrow" />
+                  )}
+                </button>
+
+                {isOpen && (
+                  <div className="faq-answer-content">
+                    <p>{item.answer}</p>
+                  </div>
                 )}
-              </button>
-
-              {isOpen && (
-                <div className="faq-answer-content">
-                  <p>{item.answer}</p>
-                </div>
-              )}
-            </div>
-          );
-        })}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
