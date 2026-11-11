@@ -41,6 +41,11 @@
   margin-bottom: 4rem;
   text-align: center;
   position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   overflow: hidden;
   padding: 1.5rem 0;
   background: var(--bg-card);
