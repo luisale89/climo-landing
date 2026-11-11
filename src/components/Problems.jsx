@@ -36,7 +36,7 @@ export default function Problems() {
             <div className="card-icon icon-teal">
               <Clock />
             </div>
-            <h3>Preventivo por Calendario</h3>
+            <h3>Mantenimientos por Calendario</h3>
             <p>
               Pago de tarifas periódicas fijas sin importar si el equipo acumuló
               horas de uso o si realmente requiere intervención técnica.

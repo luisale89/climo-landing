@@ -31,7 +31,7 @@ export default function ServiceModels() {
             <strong>
               Potenciamos a sus contratistas o personal técnico interno.
             </strong>{" "}
-            CLIMO actúa como el cerebro operativo, monitoreando la ocupación y
+            CLIMO actúa como el cerebro operativo, controlando y monitoreando la
             salud de los equipos para coordinar el despacho de su equipo actual
             solo cuando se requiera.
           </p>
@@ -47,7 +47,9 @@ export default function ServiceModels() {
             </li>
             <li>
               <Check size={18} className="check-icon" />
-              <span>Control de climatización por afluencia real</span>
+              <span>
+                Ejecución de mantenimiento basado en condiciones reales
+              </span>
             </li>
           </ul>
 

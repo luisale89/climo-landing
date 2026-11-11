@@ -30,9 +30,8 @@ export default function Pricing() {
               Desde $120 <small>USD / unidad (Pago único)</small>
             </div>
             <p>
-              Provisión e instalación no invasiva de sensores de ocupación,
-              telemetría y módulos de control según las necesidades específicas
-              de su infraestructura.
+              Provisión e instalación de sensores, telemetría y módulos de
+              control según las necesidades específicas de su infraestructura.
             </p>
           </div>
 

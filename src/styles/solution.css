@@ -1,0 +1,262 @@
+.solution-section {
+  background: var(--bg-body);
+}
+
+.solution-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+
+.solution-header .section-title {
+  font-size: 2.25rem;
+  color: var(--climo-navy);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.solution-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--climo-teal);
+  background: rgba(19, 155, 151, 0.1);
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.8px;
+}
+
+.solution-container-grid .section-title {
+  font-size: 2.35rem;
+  color: var(--climo-navy);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.solution-subtitle {
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.solution-block-3 {
+  width: 100%;
+}
+
+.architecture-card-full {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.arch-full-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px dashed var(--border-light);
+  margin-bottom: 1rem;
+}
+
+.arch-full-header .header-title-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.arch-full-header .header-icon-box {
+  width: 44px;
+  height: 44px;
+  background: #f5f3ff;
+  color: var(--climo-purple);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arch-full-header h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--climo-navy);
+}
+
+.hub-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--climo-teal);
+  background: rgba(19, 155, 151, 0.1);
+  padding: 0.35rem 0.85rem;
+  border-radius: 0.5rem;
+}
+
+.arch-full-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* Grid de los 3 Pasos del Pipeline */
+.arch-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.arch-step-card {
+  background: var(--bg-body);
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.arch-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.featured-step {
+  background: #ffffff;
+  border: 1px solid #a7f3d0;
+  box-shadow: var(--shadow-md);
+}
+
+.step-badge-top {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  width: fit-content;
+  letter-spacing: 0.5px;
+}
+
+.teal-bg {
+  background: #ccfbf1;
+  color: #0f766e;
+}
+.solid-teal {
+  background: var(--climo-teal);
+  color: #ffffff;
+}
+.purple-bg {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.step-top-icon {
+  margin-bottom: 0.75rem;
+}
+
+.teal-icon {
+  color: #0f766e;
+}
+.white-icon {
+  color: #ffffff;
+}
+.purple-icon {
+  color: #6d28d9;
+}
+
+.arch-step-card h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--climo-navy);
+  margin-bottom: 0.4rem;
+}
+
+.arch-step-card p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: auto 0 0 0;
+  border-top: 1px solid var(--border-light);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.step-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--climo-navy);
+}
+
+.icon-amber {
+  color: #d97706;
+}
+.icon-red {
+  color: #ef4444;
+}
+.icon-blue {
+  color: #0284c7;
+}
+.icon-teal {
+  color: #059669;
+}
+.icon-purple {
+  color: #6d28d9;
+}
+
+/* Widget interno paso 2 */
+.step-widget-box {
+  background: var(--bg-body);
+  border: 1px solid var(--border-light);
+  border-radius: 0.75rem;
+  padding: 0.9rem;
+  margin-top: auto;
+}
+
+.widget-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--climo-navy);
+  margin-bottom: 0.5rem;
+}
+
+.widget-bar {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.widget-fill {
+  height: 100%;
+  background: var(--climo-teal);
+  border-radius: 3px;
+}
+
+/* Responsivo para el bloque 3 */
+@media (max-width: 992px) {
+  .arch-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

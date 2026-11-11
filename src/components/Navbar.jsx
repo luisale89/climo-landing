@@ -9,7 +9,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Oculta/Muestra la barra superior y ajusta sombra al scrolear más de 30px
+      // Oculta/Muestra la barra superior y ajusta sombra al scrolear más de 0px
       setIsScrolled(window.scrollY > 0 ? true : false);
     };
     window.addEventListener("scroll", handleScroll);
@@ -74,7 +74,7 @@ export default function Navbar() {
           <div className="top-bar-actions">
             <button onClick={handleLoginClick} className="top-login-btn">
               <LogIn size={14} />
-              <span>Iniciar Sesión en la App</span>
+              <span>Iniciar Sesión</span>
             </button>
           </div>
         </div>
@@ -108,18 +108,18 @@ export default function Navbar() {
               Modelos de Servicio
             </a>
             <a
-              href="#roi"
-              className={`nav-link ${activeSection === "roi" ? "active" : ""}`}
-              onClick={() => handleNavClick("roi")}
-            >
-              Calculadora ROI
-            </a>
-            <a
               href="#precios"
               className={`nav-link ${activeSection === "precios" ? "active" : ""}`}
               onClick={() => handleNavClick("precios")}
             >
               Precios
+            </a>
+            <a
+              href="#roi"
+              className={`nav-link ${activeSection === "roi" ? "active" : ""}`}
+              onClick={() => handleNavClick("roi")}
+            >
+              Calculadora ROI
             </a>
             <a
               href="#faq"

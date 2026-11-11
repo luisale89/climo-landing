@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Problems from "./components/Problems";
-import Solution from "./components/Solutions";
+import Solution from "./components/Solution";
 import ServiceModels from "./components/ServiceModels";
 import RoiCalculator from "./components/RoiCalculator";
 import Pricing from "./components/Pricing";
@@ -20,8 +20,8 @@ export default function App() {
       <Problems />
       <Solution />
       <ServiceModels />
-      <RoiCalculator />
       <Pricing />
+      <RoiCalculator />
       <Testimonials />
       <Faq />
       <ContactForm />

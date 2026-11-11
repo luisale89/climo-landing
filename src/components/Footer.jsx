@@ -126,7 +126,7 @@ export default function Footer() {
 
           {/* Columna 4: Contacto Directo & Soporte */}
           <div className="footer-col contact-col">
-            <h4>Contacto Operativo</h4>
+            <h4>Contacto</h4>
             <ul className="contact-info-list">
               <li>
                 <MapPin size={16} className="footer-icon" />
@@ -134,7 +134,7 @@ export default function Footer() {
               </li>
               <li>
                 <Phone size={16} className="footer-icon" />
-                <span>+58 (424) 533-9278</span>
+                <span>+58 (424) 123-1212</span>
               </li>
               <li>
                 <Mail size={16} className="footer-icon" />
