@@ -26,9 +26,8 @@ export default function Problems() {
             </div>
             <h3>Enfriamiento Ineficiente</h3>
             <p>
-              Equipos operando a máxima capacidad en zonas sin presencia de
-              usuarios o en horas de baja afluencia, acelerando el desgaste
-              mecánico.
+              Equipos operando a máxima capacidad en zonas vacías o en horas de
+              baja afluencia, acelerando el desgaste mecánico.
             </p>
           </div>
 
@@ -47,10 +46,11 @@ export default function Problems() {
             <div className="card-icon icon-purple">
               <Users />
             </div>
-            <h3>Personal Técnico Ocioso</h3>
+            <h3>Operación Ineficiente</h3>
             <p>
-              Técnicos fijos con amplias ventanas de inactividad técnica durante
-              jornadas de operación normal.
+              Ajustes manuales de temperatura que dependen de la experiencia del
+              personal a cargo, generando inconsistencias y malestar en los
+              usuarios.
             </p>
           </div>
 
@@ -58,9 +58,9 @@ export default function Problems() {
             <div className="card-icon icon-red">
               <ShieldCheck />
             </div>
-            <h3>Caja Negra Operativa</h3>
+            <h3>Incertidumbre Operativa</h3>
             <p>
-              Falta de visibilidad sobre el estado mecánico real hasta que
+              Falta de visibilidad sobre el estado de salud real hasta que
               ocurre una falla repentina que compromete la operación.
             </p>
           </div>
