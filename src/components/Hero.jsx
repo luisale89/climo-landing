@@ -41,7 +41,7 @@ export default function Hero() {
   }, [displayText, isDeleting, textIndex]);
 
   const handleCtaClick = (actionName) => {
-    trackEvent("hero_cta_clicked", { action: actionName });
+    // trackEvent("hero_cta_clicked", { action: actionName });
   };
 
   return (

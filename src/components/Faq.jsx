@@ -51,10 +51,10 @@ export default function Faq() {
 
     // Disparar evento de analítica si se abre el acordeón
     if (nextIndex !== null) {
-      trackEvent("faq_accordion_opened", {
-        faq_index: index,
-        faq_question: questionText,
-      });
+      // trackEvent("faq_accordion_opened", {
+      //   faq_index: index,
+      //   faq_question: questionText,
+      // });
     }
   };
 
