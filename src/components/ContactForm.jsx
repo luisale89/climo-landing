@@ -25,11 +25,11 @@ export default function ContactForm() {
     e.preventDefault();
 
     // Evento de Conversión Principal en GA4
-    trackEvent("lead_form_submitted", {
-      empresa_email: formData.email,
-      equipos_piloto: formData.equipos,
-      modelo_preferido: formData.modelo,
-    });
+    // trackEvent("lead_form_submitted", {
+    //   empresa_email: formData.email,
+    //   equipos_piloto: formData.equipos,
+    //   modelo_preferido: formData.modelo,
+    // });
 
     alert(
       "¡Solicitud enviada con éxito! Un especialista técnico se pondrá en contacto para coordinar la evaluación del piloto.",

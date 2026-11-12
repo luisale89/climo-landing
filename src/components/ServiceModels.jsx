@@ -4,7 +4,7 @@ import "../styles/service-models.css";
 
 export default function ServiceModels() {
   const handleSelectModel = (modelName) => {
-    trackEvent("service_model_selected", { modelo_seleccionado: modelName });
+    // trackEvent("service_model_selected", { modelo_seleccionado: modelName });
   };
 
   return (

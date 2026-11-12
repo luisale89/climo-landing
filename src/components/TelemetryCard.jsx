@@ -37,10 +37,10 @@ export default function TelemetryCard() {
         </div>
       </div>
 
-      {/* Barra de Salud Mecánica */}
+      {/* Barra de Estado de Salud */}
       <div className="mechanical-health-box">
         <div className="health-header">
-          <span>Salud Mecánica del sistema</span>
+          <span>Estado de Salud del sistema</span>
           <strong className="health-green">98% (Óptimo)</strong>
         </div>
         <div className="progress-bar-container">
