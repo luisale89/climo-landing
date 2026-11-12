@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { User, Mail, Phone, Cpu, Layers } from "lucide-react";
-// import { trackEvent } from '../utils/analytics';
+import { User, Mail, Phone, Cpu, Layers, Send } from "lucide-react";
+import { trackEvent } from "../utils/analytics";
 import "../styles/contact-form.css";
 
 export default function ContactForm() {
@@ -25,11 +25,11 @@ export default function ContactForm() {
     e.preventDefault();
 
     // Evento de Conversión Principal en GA4
-    // trackEvent("lead_form_submitted", {
-    //   empresa_email: formData.email,
-    //   equipos_piloto: formData.equipos,
-    //   modelo_preferido: formData.modelo,
-    // });
+    trackEvent("lead_form_submitted", {
+      empresa_email: formData.email,
+      equipos_piloto: formData.equipos,
+      modelo_preferido: formData.modelo,
+    });
 
     alert(
       "¡Solicitud enviada con éxito! Un especialista técnico se pondrá en contacto para coordinar la evaluación del piloto.",
@@ -180,6 +180,7 @@ export default function ContactForm() {
             {/* Botón CTA Submit */}
             <div className="form-group full-width">
               <button type="submit" className="btn-submit-cta">
+                <Send size={16} />
                 Solicitar Evaluación y Piloto sin Costo
               </button>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Sliders, Wrench, Zap, Info } from "lucide-react";
-// import { trackEvent } from '../utils/analytics';
+import { trackEvent } from "../utils/analytics";
 import "../styles/roi_calculator.css";
 
 export default function RoiCalculator() {
@@ -34,11 +34,16 @@ export default function RoiCalculator() {
 
   const handleSliderChange = (setter, value, paramName) => {
     setter(value);
-    // trackEvent("roi_calculator_interacted", {
-    //   parametro: paramName,
-    //   nuevo_valor: value,
-    //   flota_total: totalEquipos,
-    // });
+  };
+
+  const handleMouseUp = (value, paramName) => {
+    trackEvent("roi_calculator_interacted", {
+      parametro: paramName,
+      nuevo_valor: value,
+      flota_total: totalEquipos,
+      ahorro_mtto_mes: ahorroMantenimientoMes,
+      ahorro_energia_mes: ahorroEnergiaMes,
+    });
   };
 
   return (
@@ -84,6 +89,12 @@ export default function RoiCalculator() {
                       "sedes",
                     )
                   }
+                  onMouseUp={(e) =>
+                    handleMouseUp(Number(e.target.value), "sedes")
+                  }
+                  onTouchEnd={(e) =>
+                    handleMouseUp(Number(e.target.value), "sedes")
+                  }
                   className="custom-slider teal-slider"
                 />
               </div>
@@ -105,6 +116,12 @@ export default function RoiCalculator() {
                       Number(e.target.value),
                       "equipos_por_sede",
                     )
+                  }
+                  onMouseUp={(e) =>
+                    handleMouseUp(Number(e.target.value), "equipos_por_sede")
+                  }
+                  onTouchEnd={(e) =>
+                    handleMouseUp(Number(e.target.value), "equipos_por_sede")
                   }
                   className="custom-slider teal-slider"
                 />
@@ -137,6 +154,12 @@ export default function RoiCalculator() {
                       "mantenimiento",
                     )
                   }
+                  onMouseUp={(e) =>
+                    handleMouseUp(Number(e.target.value), "mantenimiento")
+                  }
+                  onTouchEnd={(e) =>
+                    handleMouseUp(Number(e.target.value), "mantenimiento")
+                  }
                   className="custom-slider teal-slider"
                 />
                 <div className="slider-meta">
@@ -165,6 +188,12 @@ export default function RoiCalculator() {
                       Number(e.target.value),
                       "energia",
                     )
+                  }
+                  onMouseUp={(e) =>
+                    handleMouseUp(Number(e.target.value), "energia")
+                  }
+                  onTouchEnd={(e) =>
+                    handleMouseUp(Number(e.target.value), "energia")
                   }
                   className="custom-slider purple-slider"
                 />

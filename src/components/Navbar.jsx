@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight, Activity, LogIn } from "lucide-react";
-// import { trackEvent } from '../utils/analytics';
+import { trackEvent } from "../utils/analytics";
 import "../styles/navbar.css";
 
 export default function Navbar() {
@@ -50,12 +50,12 @@ export default function Navbar() {
 
   const handleNavClick = (sectionId) => {
     setActiveSection(sectionId);
-    // trackEvent("navbar_link_clicked", { target_section: sectionId });
+    trackEvent("navbar_link_clicked", { target_section: sectionId });
   };
 
   const handleLoginClick = () => {
-    // trackEvent("login_button_clicked");
-    // Aquí puedes redirigir a tu app de plataforma (ej. window.location.href = 'https://app.climo.io')
+    // Abrir el login en una nueva pestaña y disparar evento de analítica
+    trackEvent("login_button_clicked");
   };
 
   return (
@@ -72,10 +72,16 @@ export default function Navbar() {
           </div>
 
           <div className="top-bar-actions">
-            <button onClick={handleLoginClick} className="top-login-btn">
+            <a
+              onClick={handleLoginClick}
+              className="top-login-btn"
+              href="https://63b99a7746f437000917e353.tago.run/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <LogIn size={14} />
               <span>Iniciar Sesión</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import HeroTelemetryCard from "./TelemetryCard";
 import { Zap, ArrowRight, Sliders, CheckCircle2 } from "lucide-react";
-// import { trackEvent } from "../utils/analytics";
+import { trackEvent } from "../utils/analytics";
 import "../styles/hero.css";
 
 const CLIENT_TYPES = [
@@ -41,7 +41,7 @@ export default function Hero() {
   }, [displayText, isDeleting, textIndex]);
 
   const handleCtaClick = (actionName) => {
-    // trackEvent("hero_cta_clicked", { action: actionName });
+    trackEvent("hero_cta_clicked", { action: actionName });
   };
 
   return (

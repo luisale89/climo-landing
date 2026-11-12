@@ -163,6 +163,10 @@
 
 /* Botón CTA Gradiente */
 .btn-submit-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   width: 100%;
   padding: 1.1rem;
   border: none;
