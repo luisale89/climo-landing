@@ -20,10 +20,10 @@ export default function Pricing() {
         <div className="pricing-grid">
           {/* Tarjeta 1: Setup Fee */}
           <div className="pricing-card">
-            <div className="card-icon icon-blue">
-              <Wrench size={24} className="icon-navy" />
+            <div className="card-icon icon-teal">
+              <Wrench size={24} className="icon-teal-color" />
             </div>
-            <span className="pricing-chip">
+            <span className="pricing-chip teal-chip">
               IMPLEMENTACIÓN INICIAL (SETUP FEE)
             </span>
             <div className="price-amount">
