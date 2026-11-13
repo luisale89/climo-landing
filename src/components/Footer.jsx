@@ -1,10 +1,18 @@
-import React from "react";
+import { React, useState } from "react";
 import { Mail, Phone, MapPin, ArrowUp } from "lucide-react";
+import { trackEvent } from "../utils/analytics";
+import LegalModal from "./LegalModal";
 import "../styles/footer.css";
 
 export default function Footer() {
+  const [activeLegalDoc, setActiveLegalDoc] = useState(null);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const openLegalModal = (docKey) => {
+    setActiveLegalDoc(docKey);
+    trackEvent("legal_modal_opened", { document: docKey });
   };
 
   return (
@@ -158,11 +166,29 @@ export default function Footer() {
             derechos reservados.
           </p>
           <div className="legal-links">
-            <a href="#">Términos del Servicio</a>
+            <button
+              type="button"
+              className="footer-link-btn"
+              onClick={() => openLegalModal("privacidad")}
+            >
+              Política de Privacidad
+            </button>
             <span className="dot-separator">•</span>
-            <a href="#">Política de Privacidad</a>
+            <button
+              type="button"
+              className="footer-link-btn"
+              onClick={() => openLegalModal("terminos")}
+            >
+              Términos del Servicio
+            </button>
             <span className="dot-separator">•</span>
-            <a href="#">Cumplimiento GDPR & Sensores PIR</a>
+            <button
+              type="button"
+              className="footer-link-btn"
+              onClick={() => openLegalModal("cookies")}
+            >
+              Política de Cookies
+            </button>
           </div>
           <button
             onClick={scrollToTop}
@@ -173,6 +199,10 @@ export default function Footer() {
           </button>
         </div>
       </div>
+      <LegalModal
+        activeDoc={activeLegalDoc}
+        onClose={() => setActiveLegalDoc(null)}
+      />
     </footer>
   );
 }

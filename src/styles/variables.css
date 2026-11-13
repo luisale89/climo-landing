@@ -3,8 +3,12 @@
 :root {
   /* 🎨 Paleta de Colores Corporativos CLIMO */
   --climo-navy: #0e4276;
+  --climo-dark-navy: #0b132b;
   --climo-teal: #139b97;
   --climo-purple: #532379;
+  --climo-danger: #dc2626;
+  --climo-danger-bg: #fef2f2;
+  --climo-danger-hover: #b91c1c;
 
   /* Fondos y Superficies */
   --bg-body: #f8fafc;
