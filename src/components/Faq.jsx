@@ -8,7 +8,7 @@ const faqData = [
     question:
       "¿Cómo funcionan exactamente los sensores de ocupación y carga térmica sin invadir la privacidad?",
     answer:
-      "Utilizamos sensores de presencia infrarroja (PIR) y arreglos térmicos de baja resolución que detectan patrones de movimiento y radiación térmica sin capturar imágenes, rostros ni video. Garantizan 100% de cumplimiento con normativas de privacidad mientras envían métricas en tiempo real a CLIMO.",
+      "Utilizamos sensores de presencia por Radar (mmWave) que detectan patrones de movimiento sin capturar imágenes, rostros ni video. Garantizan 100% de cumplimiento con normativas de privacidad mientras envían métricas en tiempo real a CLIMO.",
   },
   {
     question:

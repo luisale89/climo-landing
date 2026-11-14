@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/problems.css";
-import { Zap, ShieldCheck, Clock, Users } from "lucide-react";
+import { Zap, ShieldQuestionMark, CalendarSync, Users } from "lucide-react";
 
 export default function Problems() {
   return (
@@ -13,8 +13,9 @@ export default function Problems() {
             El costo invisible de gestionar la climatización "a ciegas"
           </h2>
           <p className="problems-subtitle">
-            Las empresas enfrentan fugas constantes de capital por esquemas de
-            operación y mantenimiento obsoletos.
+            Las empresas con múltiples sedes pierden capital a diario debido a
+            esquemas de climatización desconectados, correctivos tardíos y nula
+            visibilidad operativa
           </p>
         </div>
 
@@ -24,21 +25,23 @@ export default function Problems() {
             <div className="card-icon icon-blue">
               <Zap />
             </div>
-            <h3>Enfriamiento Ineficiente</h3>
+            <h3>Alto Consumo Energético</h3>
             <p>
-              Equipos operando a máxima capacidad en zonas vacías o en horas de
-              baja afluencia, acelerando el desgaste mecánico.
+              Equipos operando al 100% en áreas desatendidas o fuera de horario
+              comercial, disparando la factura eléctrica y acelerando el
+              desgaste mecánico sin aportar valor al negocio.
             </p>
           </div>
 
           <div className="info-card">
             <div className="card-icon icon-teal">
-              <Clock />
+              <CalendarSync />
             </div>
-            <h3>Mantenimientos por Calendario</h3>
+            <h3>Mantenimiento a Ciegas</h3>
             <p>
-              Pago de tarifas periódicas fijas sin importar si el equipo acumuló
-              horas de uso o si realmente requiere intervención técnica.
+              Intervenciones y contratos fijos dictados por fechas en el
+              calendario, ignorando las horas de uso real del compresor y
+              gastando recursos en equipos que no lo necesitaban.
             </p>
           </div>
 
@@ -46,22 +49,23 @@ export default function Problems() {
             <div className="card-icon icon-purple">
               <Users />
             </div>
-            <h3>Operación Ineficiente</h3>
+            <h3>Gestión Local Fragmentada</h3>
             <p>
-              Ajustes manuales de temperatura que dependen de la experiencia del
-              personal a cargo, generando inconsistencias y malestar en los
-              usuarios.
+              Dependencia de ajustes manuales y criterios improvisados del
+              personal en cada sucursal, generando temperaturas inconsistentes,
+              malestar en clientes/empleados y nulo control corporativo.
             </p>
           </div>
 
           <div className="info-card">
             <div className="card-icon icon-red">
-              <ShieldCheck />
+              <ShieldQuestionMark />
             </div>
-            <h3>Incertidumbre Operativa</h3>
+            <h3>Correctivos de Alto Costo</h3>
             <p>
-              Falta de visibilidad sobre el estado de salud real hasta que
-              ocurre una falla repentina que compromete la operación.
+              Ausencia de telemetría y alertas tempranas; te enteras de una
+              falla crítica únicamente cuando el equipo colapsa, paralizando la
+              operación y forzando costosos repuestos de emergencia.
             </p>
           </div>
         </div>

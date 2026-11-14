@@ -66,11 +66,11 @@ export default function Solution() {
           <div className="arch-steps-grid">
             {/* Paso 1 */}
             <div className="arch-step-card">
-              <div className="step-badge-top teal-bg">
-                1. CAPTURA NO INVASIVA
+              <div className="step-badge-top navy-bg">
+                1. MEDICIÓN NO INVASIVA
               </div>
               <ChartBellCurve size={20} className="step-top-icon teal-icon" />
-              <h3>Medición Continua de Variables</h3>
+              <h3>Captura Continua de Variables</h3>
               <p>
                 Instalación rápida sin romper garantías ni alterar
                 infraestructura existente. Uso de sensores no invasivos para no
@@ -84,11 +84,11 @@ export default function Solution() {
                 </li>
                 <li>
                   <Thermometer size={14} className="icon-red" />
-                  <span>Salto térmico / Temp. Succión</span>
+                  <span>Temperaturas de Operación</span>
                 </li>
                 <li>
                   <Users size={14} className="icon-blue" />
-                  <span>Ocupación / Temp. Ambiente</span>
+                  <span>Ocupación del espacio</span>
                 </li>
               </ul>
             </div>
@@ -96,7 +96,7 @@ export default function Solution() {
             {/* Paso 2 */}
             <div className="arch-step-card featured-step">
               <div className="step-badge-top solid-teal">
-                2. NÚCLEO DE CONTROL
+                2. NÚCLEO DE CONTROL (EDGE)
               </div>
               <AirVent size={20} className="step-top-icon" />
               <h3>Ajuste Dinámico de Potencia</h3>
@@ -129,12 +129,12 @@ export default function Solution() {
             {/* Paso 3 */}
             <div className="arch-step-card">
               <div className="step-badge-top purple-bg">
-                3. ANÁLISIS DE DATOS & DESPACHO
+                3. ANÁLISIS DE DATOS & NOTIFICACIONES
               </div>
               <Bell size={20} className="step-top-icon purple-icon" />
-              <h3>Análisis de Rendimiento y Notificaciones</h3>
+              <h3>Cálculo del Rendimiento y operación</h3>
               <p>
-                Calculo y detección de <strong>desviaciones</strong> de
+                Comparación y detección de <strong>desviaciones</strong> de
                 rendimiento y notificación directa a contratistas o cuadrillas
                 técnicas.
               </p>
@@ -150,7 +150,7 @@ export default function Solution() {
                 </li>
                 <li>
                   <Wrench size={14} className="step-icon" />
-                  <span>Mantenimiento por Condición</span>
+                  <span>Alarmas y Notificaciones de mantenimiento</span>
                 </li>
               </ul>
             </div>

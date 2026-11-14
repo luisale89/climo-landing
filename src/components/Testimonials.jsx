@@ -3,12 +3,12 @@ import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import "../styles/testimonials.css";
 
 const clientLogos = [
-  { name: "Sambilito Petare", logo: "Sambilito" },
-  { name: "Jump Líder", logo: "JUMP Líder" },
-  { name: "Casapro Araure", logo: "Casapro" },
-  { name: "Buenaventura JUMP", logo: "Buenaventura" },
-  { name: "SNO Barquisimeto", logo: "SNO Barquisimeto" },
-  { name: "Catia Comercial", logo: "Catia Retail" },
+  // { name: "You", logo: "Tu Logo Aquí..." },
+  // { name: "Jump Líder", logo: "JUMP Líder" },
+  // { name: "Casapro Araure", logo: "Casapro" },
+  // { name: "Buenaventura JUMP", logo: "Buenaventura" },
+  // { name: "SNO Barquisimeto", logo: "SNO Barquisimeto" },
+  // { name: "Catia Comercial", logo: "Catia Retail" },
 ];
 
 const testimonialsData = [
@@ -22,7 +22,7 @@ const testimonialsData = [
   },
   {
     quote:
-      "Pasar de mantenimientos fijos a un esquema por condición real mediante telemetría IoT nos salvó de fallas críticas en los compresores durante la temporada de mayor afluencia comercial.",
+      "Pasar de mantenimientos fijos a un esquema por condición nos salvó de fallas críticas en los compresores durante la temporada de mayor afluencia comercial.",
     name: "Mariana Figuera",
     role: "Gerente de Mantenimiento de Flota",
     avatar:
@@ -82,11 +82,17 @@ export default function Testimonials() {
         <div className="logos-ticker-container">
           <span className="ticker-label">EMPRESAS QUE YA CONFIAN EN CLIMO</span>
           <div className="ticker-track">
-            {[...clientLogos, ...clientLogos].map((client, index) => (
-              <div key={index} className="client-logo-card">
-                <span>{client.logo}</span>
+            {clientLogos.length > 0 ? (
+              [...clientLogos, ...clientLogos].map((client, index) => (
+                <div key={index} className="client-logo-card">
+                  <span>{client.logo}</span>
+                </div>
+              ))
+            ) : (
+              <div key="no-logos" className="client-logo-card">
+                <span>No hay logos de clientes disponibles.</span>
               </div>
-            ))}
+            )}
           </div>
         </div>
 

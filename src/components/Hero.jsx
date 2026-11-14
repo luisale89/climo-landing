@@ -59,16 +59,18 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-title">
-            Deje de gastar en mantenimientos a ciegas y de climatizar{" "}
-            <span className="highlight-teal">espacios</span>{" "}
-            <span className="highlight-purple">vacíos.</span>
+            Su flota de climatización consume capital a ciegas.{" "}
+            <span className="highlight-purple">Es hora de operarla</span>{" "}
+            <span className="highlight-teal">por Datos</span>
           </h1>
 
           <p className="hero-description">
-            Transforme el gasto fijo de sus equipos de climatización y
-            refrigeración en una inversión optimizada. Ajuste la operación de su
-            flota a la <strong>ocupación real y carga térmica</strong>, pasando
-            de mantenimientos por calendario a un esquema por condición.
+            Deje atrás las visitas técnicas innecesarias y el enfriamiento
+            desatendido en sucursales.{" "}
+            <strong>
+              Gestione la carga térmica real y operación de todos sus equipos
+              desde una única plataforma inteligente.
+            </strong>
           </p>
 
           <div className="hero-cta-group">
@@ -94,15 +96,15 @@ export default function Hero() {
           <div className="hero-features-list">
             <div className="hero-feature-item">
               <CheckCircle2 size={16} className="check-icon" />
-              <span>Sin interrupción operativa</span>
+              <span>Sin intervención de la operación</span>
             </div>
             <div className="hero-feature-item">
               <CheckCircle2 size={16} className="check-icon" />
-              <span>Mantenimiento por condición real</span>
+              <span>Gestión centralizada multisucursal</span>
             </div>
             <div className="hero-feature-item">
               <CheckCircle2 size={16} className="check-icon" />
-              <span>Monitoreo 24/7 centralizado</span>
+              <span>Alertas tempranas de fallas</span>
             </div>
           </div>
         </div>
