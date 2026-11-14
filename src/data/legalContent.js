@@ -37,7 +37,7 @@ export const LEGAL_CONTENT = {
       {
         heading: "1. Naturaleza Informativa y Alcance",
         content:
-          "El contenido publicado en esta landing page tiene fines exclusivamente informativos y comerciales sobre nuestras soluciones de monitoreo IoT, telemetría y analítica predictiva para sistemas de climatización (HVAC) y refrigeración comercial. La información técnica, métricas de ahorro energético estimadas o casos de éxito mostrados son referenciales y no constituyen una oferta contractual vinculante hasta la firma de una propuesta comercial o acuerdo de nivel de servicio (SLA).",
+          "El contenido publicado en esta landing page tiene fines exclusivamente informativos y comerciales sobre nuestras soluciones de monitoreo IoT, telemetría y analítica predictiva para sistemas de climatización (HVAC) comercial. La información técnica, métricas de ahorro energético estimadas o casos de éxito mostrados son referenciales y no constituyen una oferta contractual vinculante hasta la firma de una propuesta comercial o acuerdo de nivel de servicio (SLA).",
       },
       {
         heading: "2. Propiedad Intelectual",
@@ -57,7 +57,7 @@ export const LEGAL_CONTENT = {
       {
         heading: "5. Objeto del Servicio",
         content:
-          "CLIMO proporciona una plataforma SaaS (Software as a Service) que recolecta, procesa y visualiza datos provenientes de nodos de telemetría instalados en equipos HVAC y de refrigeración, generando indicadores de salud operativa, historial de variables y notificaciones de anomalías.",
+          "CLIMO proporciona una plataforma SaaS (Software as a Service) que recolecta, procesa y visualiza datos provenientes de nodos de telemetría instalados en equipos HVAC, generando indicadores de salud operativa, historial de variables y notificaciones de anomalías.",
       },
       {
         heading: "6. Registro y Seguridad de la Cuenta",

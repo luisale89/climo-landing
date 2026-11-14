@@ -5,6 +5,7 @@ import { trackEvent } from "../utils/analytics";
 import "../styles/hero.css";
 
 const CLIENT_TYPES = [
+  "Farmacias",
   "Tiendas de Retail",
   "Centros Comerciales",
   "Hoteles",
@@ -51,7 +52,7 @@ export default function Hero() {
         <div className="hero-content">
           <div className="hero-top-badge">
             <Zap size={15} className="badge-icon" />
-            <span>Inteligencia IoT para:</span>
+            <span>Solución IoT para:</span>
             <strong className="typewriter-text">
               {displayText}
               <span className="cursor">|</span>
@@ -59,17 +60,17 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-title">
-            Su flota de climatización consume capital a ciegas.{" "}
-            <span className="highlight-purple">Es hora de operarla</span>{" "}
-            <span className="highlight-teal">por Datos</span>
+            Control total y automatizado para flotas de climatización comercial.{" "}
+            <span className="highlight-purple">Es hora de operar</span>{" "}
+            <span className="highlight-teal">con Datos</span>
           </h1>
 
           <p className="hero-description">
-            Deje atrás las visitas técnicas innecesarias y el enfriamiento
-            desatendido en sucursales.{" "}
+            Elimine el gasto invisible por mantenimientos innecesarios y equipos
+            operando en espacios desatendidos.{" "}
             <strong>
-              Gestione la carga térmica real y operación de todos sus equipos
-              desde una única plataforma inteligente.
+              Transforme su infraestructura en una operación inteligente guiada
+              por condición real y telemetría 24/7.
             </strong>
           </p>
 
@@ -96,15 +97,15 @@ export default function Hero() {
           <div className="hero-features-list">
             <div className="hero-feature-item">
               <CheckCircle2 size={16} className="check-icon" />
-              <span>Sin intervención de la operación</span>
+              <span>Cero interrupción operativa</span>
             </div>
             <div className="hero-feature-item">
               <CheckCircle2 size={16} className="check-icon" />
-              <span>Gestión centralizada multisucursal</span>
+              <span>Telemetría y Analítica en tiempo real</span>
             </div>
             <div className="hero-feature-item">
               <CheckCircle2 size={16} className="check-icon" />
-              <span>Alertas tempranas de fallas</span>
+              <span>Mantenimiento predictivo por condición</span>
             </div>
           </div>
         </div>

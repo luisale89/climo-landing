@@ -30,7 +30,7 @@ const testimonialsData = [
   },
   {
     quote:
-      "La visibilidad en tiempo real sobre la salud mecánica de los equipos de refrigeración nos dio total control operativo y redujo drásticamente las llamadas de emergencia nocturnas.",
+      "La visibilidad en tiempo real sobre la salud mecánica de los equipos de climatización nos dio total control operativo y redujo drásticamente las llamadas de emergencia nocturnas.",
     name: "Roberto Silva",
     role: "Jefe de Infraestructura & Frío Industrial",
     avatar:

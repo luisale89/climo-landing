@@ -32,8 +32,8 @@ export default function Footer() {
             </a>
             <p className="footer-brand-desc">
               Plataforma IoT de inteligencia operativa para optimizar el consumo
-              energético y el mantenimiento predictivo de flotas HVAC y
-              refrigeración comercial en Venezuela.
+              energético y el mantenimiento predictivo de flotas HVAC comercial
+              en Venezuela.
             </p>
             {/* Redes Sociales con SVGs Oficiales */}
             <div className="social-links">
@@ -115,13 +115,16 @@ export default function Footer() {
             <h4>Sectores</h4>
             <ul className="footer-links">
               <li>
+                <a href="#contacto">Farmacias</a>
+              </li>
+              <li>
                 <a href="#contacto">Retail & Cadenas de Tiendas</a>
               </li>
               <li>
                 <a href="#contacto">Centros Comerciales</a>
               </li>
               <li>
-                <a href="#contacto">Supermercados & Red de Frío</a>
+                <a href="#contacto">Supermercados</a>
               </li>
               <li>
                 <a href="#contacto">Edificios Corporativos</a>

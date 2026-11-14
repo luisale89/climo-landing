@@ -17,7 +17,7 @@ const INITIAL_FORM_STATE = {
   nombre: "",
   email: "",
   telefono: "",
-  equipos: "5 - 10 equipos HVAC/Refrigeración",
+  equipos: "5 - 10 equipos de Climatización",
   modelo: "Coordinación de Mis Contratistas",
 };
 
@@ -247,14 +247,14 @@ export default function ContactForm() {
                   onChange={handleChange}
                   className="form-input form-select"
                 >
-                  <option value="1 - 4 equipos HVAC/Refrigeración">
-                    1 - 4 equipos HVAC/Refrigeración
+                  <option value="1 - 4 equipos de Climatización">
+                    1 - 4 equipos de Climatización
                   </option>
-                  <option value="5 - 10 equipos HVAC/Refrigeración">
-                    5 - 10 equipos HVAC/Refrigeración
+                  <option value="5 - 10 equipos de Climatización">
+                    5 - 10 equipos de Climatización
                   </option>
-                  <option value="11 - 25 equipos HVAC/Refrigeración">
-                    11 - 25 equipos HVAC/Refrigeración
+                  <option value="11 - 25 equipos de Climatización">
+                    11 - 25 equipos de Climatización
                   </option>
                   <option value="Más de 25 equipos">
                     Más de 25 equipos (Flota grande)

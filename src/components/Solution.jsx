@@ -53,7 +53,7 @@ export default function Solution() {
               <div className="header-icon-box">
                 <Cpu size={22} />
               </div>
-              <h2>Arquitectura de Operación Inteligente</h2>
+              <h2>Arquitectura de Operación Inteligente en 3 pasos:</h2>
             </div>
           </div>
 
@@ -65,16 +65,16 @@ export default function Solution() {
           {/* 3 Tarjetas de Flujo */}
           <div className="arch-steps-grid">
             {/* Paso 1 */}
-            <div className="arch-step-card">
+            <div className="arch-step-card featured-step feat-navy">
               <div className="step-badge-top navy-bg">
                 1. MEDICIÓN NO INVASIVA
               </div>
               <ChartBellCurve size={20} className="step-top-icon teal-icon" />
               <h3>Captura Continua de Variables</h3>
               <p>
-                Instalación rápida sin romper garantías ni alterar
-                infraestructura existente. Uso de sensores no invasivos para no
-                alterar la operación de los equipos.
+                <strong>Instalación rápida sin romper garantías</strong> ni
+                alterar infraestructura existente. Uso de sensores no invasivos
+                para no alterar la operación de los equipos.
               </p>
 
               <ul className="step-list">
@@ -127,14 +127,14 @@ export default function Solution() {
             </div>
 
             {/* Paso 3 */}
-            <div className="arch-step-card">
+            <div className="arch-step-card featured-step feat-purple">
               <div className="step-badge-top purple-bg">
                 3. ANÁLISIS DE DATOS & NOTIFICACIONES
               </div>
               <Bell size={20} className="step-top-icon purple-icon" />
               <h3>Cálculo del Rendimiento y operación</h3>
               <p>
-                Comparación y detección de <strong>desviaciones</strong> de
+                <strong>Comparación y detección de desviaciones</strong> de
                 rendimiento y notificación directa a contratistas o cuadrillas
                 técnicas.
               </p>

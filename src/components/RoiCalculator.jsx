@@ -102,7 +102,7 @@ export default function RoiCalculator() {
               {/* Slider 2: Equipos por Sede */}
               <div className="slider-group">
                 <div className="slider-label">
-                  <span>Equipos HVAC/Refrigeración por sede:</span>
+                  <span>Equipos HVAC por sede:</span>
                   <div className="value-box">{equiposPorSede} equipos</div>
                 </div>
                 <input

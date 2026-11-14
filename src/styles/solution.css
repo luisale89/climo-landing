@@ -129,8 +129,16 @@
 
 .featured-step {
   background: #ffffff;
-  border: 1px solid #a7f3d0;
+  border: 1px solid var(--climo-teal);
   box-shadow: var(--shadow-md);
+}
+
+.featured-step.feat-navy {
+  border: 1px solid var(--climo-navy);
+}
+
+.featured-step.feat-purple {
+  border: 1px solid var(--climo-purple);
 }
 
 .step-badge-top {
