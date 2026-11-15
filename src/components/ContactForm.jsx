@@ -38,11 +38,20 @@ export default function ContactForm() {
     setFormData((prev) => ({ ...prev, modelo: value }));
   };
 
-  const validateCorporateEmail = (email) => {
+  // Validación robusta para correo y teléfono móvil venezolano
+  const validateFormFields = () => {
+    // 1. Validación de correo
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return "Por favor, ingrese un formato de correo válido.";
+    if (!emailRegex.test(formData.email)) {
+      return "Por favor, ingrese un formato de correo electrónico válido.";
     }
+
+    // 2. Validación estricta de teléfono móvil venezolano (+58 o 0 seguido de 414, 424, 416, 426, 412, 422 + 7 dígitos)
+    const phoneRegex = /^(\+58|0)(414|424|416|426|412|422)\d{7}$/;
+    if (!phoneRegex.test(formData.telefono.replace(/\s+/g, ""))) {
+      return "Teléfono inválido. Debe usar el formato +584... o 04... (operadores 414, 424, 416, 426, 412, 422). seguido de 7 dígitos";
+    }
+
     return null;
   };
 
@@ -66,9 +75,9 @@ export default function ContactForm() {
     // Si el campo oculto anti-spam fue marcado por un bot, abortamos silenciosamente
     if (botcheck) return;
 
-    const emailError = validateCorporateEmail(formData.email);
-    if (emailError) {
-      setErrorMessage(emailError);
+    const validationError = validateFormFields();
+    if (validationError) {
+      setErrorMessage(validationError);
       return;
     }
 
@@ -136,6 +145,11 @@ export default function ContactForm() {
               <strong>ventajas operativas CLIMO</strong> en su propia
               infraestructura.
             </p>
+            {errorMessage && (
+              <div className="form-error-banner full-width" role="alert">
+                <span>{errorMessage}</span>
+              </div>
+            )}
           </div>
 
           {/* Vista de Éxito */}
@@ -169,12 +183,6 @@ export default function ContactForm() {
                 tabIndex="-1"
                 autoComplete="off"
               />
-
-              {errorMessage && (
-                <div className="form-error-banner full-width" role="alert">
-                  <span>{errorMessage}</span>
-                </div>
-              )}
 
               {/* Campo 1: Nombre */}
               <div className="form-group">

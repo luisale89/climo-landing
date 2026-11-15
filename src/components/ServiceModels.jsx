@@ -35,8 +35,8 @@ export default function ServiceModels() {
                 Potenciamos a sus contratistas o personal técnico interno.
               </strong>{" "}
               CLIMO actúa como el cerebro operativo, controlando y monitoreando
-              la salud de los equipos para coordinar el despacho de su equipo
-              actual solo cuando se requiera.
+              la salud de la flota para coordinar el despacho de su equipo de
+              mantenimiento actual solo cuando se requiera.
             </p>
 
             <ul className="model-list">

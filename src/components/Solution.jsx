@@ -79,6 +79,9 @@ export default function Solution() {
 
               <ul className="step-list">
                 <li>
+                  <span>MEDIMOS:</span>
+                </li>
+                <li>
                   <Zap size={14} className="icon-amber" />
                   <span>Corriente Eléctrica (CT)</span>
                 </li>
@@ -108,10 +111,10 @@ export default function Solution() {
               <div className="step-widget-box">
                 <div className="widget-label">
                   <span>Carga Térmica Actual:</span>
-                  <strong>72%</strong>
+                  <strong>73%</strong>
                 </div>
                 <div className="widget-bar">
-                  <div className="widget-fill" style={{ width: "72%" }} />
+                  <div className="widget-fill" style={{ width: "73%" }} />
                 </div>
                 <ul className="step-list">
                   <li>
@@ -140,6 +143,9 @@ export default function Solution() {
               </p>
 
               <ul className="step-list">
+                <li>
+                  <span>CALCULAMOS:</span>
+                </li>
                 <li>
                   <TrendingUp size={14} />
                   <span>Tendencia de rendimiento</span>
