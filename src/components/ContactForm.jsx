@@ -86,6 +86,7 @@ export default function ContactForm({ selectedModel, setModel }) {
         subject: `Nuevo Lead Piloto CLIMO - ${formData.nombre}`,
         from_name: "Landing Page CLIMO IoT",
         replyto: formData.email,
+        modelo: selectedModel,
         ...formData,
       };
 
