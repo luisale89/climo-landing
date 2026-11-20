@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -15,8 +15,21 @@ import Testimonials from "./components/Testimonials";
 import NotFound from "./components/NotFound";
 
 import "./styles/global.css";
+import { SERVICE_MODELS } from "./data/serviceModels";
 
 export default function App() {
+  const [serviceModel, setServiceModel] = useState(
+    SERVICE_MODELS.integral_service,
+  );
+
+  const handleSelectModel = (model) => {
+    setServiceModel(model);
+    const contactSection = document.getElementById("contacto");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Router>
       <Routes>
@@ -28,12 +41,15 @@ export default function App() {
               <Hero />
               <Problems />
               <Solution />
-              <ServiceModels />
+              <ServiceModels onSelectModel={handleSelectModel} />
               <Pricing />
               <RoiCalculator />
               <Testimonials />
               <Faq />
-              <ContactForm />
+              <ContactForm
+                selectedModel={serviceModel}
+                setModel={setServiceModel}
+              />
               <Footer />
             </div>
           }

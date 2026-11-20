@@ -119,6 +119,10 @@
   transition: padding 0.3s ease;
 }
 
+.header-wrapper.scrolled .nav-container .btn-cta {
+  padding: 0.65rem 0.9rem;
+}
+
 /* Logo Corporativo */
 .nav-logo-wrapper {
   text-decoration: none;

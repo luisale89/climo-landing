@@ -8,26 +8,12 @@ import {
   Wrench,
   Power,
   Bell,
-  Activity,
   ArrowsUpFromLine,
   TrendingUp,
   Heart,
   ChartBellCurve,
 } from "lucide-react";
 import "../styles/solution.css";
-
-{
-  /* <div className="problems-header">
-  <span className="problems-badge">INEFICIENCIAS OPERATIVAS</span>
-  <h2 className="section-title">
-    El costo invisible de gestionar la climatización "a ciegas"
-  </h2>
-  <p className="problems-subtitle">
-    Las empresas enfrentan fugas constantes de capital por esquemas de operación
-    y mantenimiento obsoletos.
-  </p>
-</div>; */
-}
 
 export default function Solution() {
   return (
@@ -99,7 +85,7 @@ export default function Solution() {
             {/* Paso 2 */}
             <div className="arch-step-card featured-step">
               <div className="step-badge-top solid-teal">
-                2. NÚCLEO DE CONTROL (EDGE)
+                2. NÚCLEO DE CONTROL
               </div>
               <AirVent size={20} className="step-top-icon" />
               <h3>Ajuste Dinámico de Potencia</h3>

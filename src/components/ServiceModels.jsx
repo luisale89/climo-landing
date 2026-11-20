@@ -2,10 +2,12 @@ import React from "react";
 import { Check, ArrowRight } from "lucide-react";
 import "../styles/service-models.css";
 import { trackEvent } from "../utils/analytics";
+import { SERVICE_MODELS } from "../data/serviceModels";
 
-export default function ServiceModels() {
+export default function ServiceModels({ onSelectModel }) {
   const handleSelectModel = (modelName) => {
     trackEvent("service_model_selected", { modelo_seleccionado: modelName });
+    onSelectModel(modelName);
   };
 
   return (
@@ -58,7 +60,7 @@ export default function ServiceModels() {
 
             <button
               className="btn-model btn-outline"
-              onClick={() => handleSelectModel("Coordinación Inteligente")}
+              onClick={() => handleSelectModel(SERVICE_MODELS.smart_service)}
             >
               Elegir Coordinación Inteligente
             </button>
@@ -97,7 +99,7 @@ export default function ServiceModels() {
 
             <button
               className="btn-cta"
-              onClick={() => handleSelectModel("Gestión Integral de Flota")}
+              onClick={() => handleSelectModel(SERVICE_MODELS.integral_service)}
             >
               <span>Elegir Gestión Integral</span>
               <ArrowRight size={18} />

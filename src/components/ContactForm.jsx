@@ -11,6 +11,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { trackEvent } from "../utils/analytics";
+import { SERVICE_MODELS } from "../data/serviceModels";
 import "../styles/contact-form.css";
 
 const INITIAL_FORM_STATE = {
@@ -18,10 +19,9 @@ const INITIAL_FORM_STATE = {
   email: "",
   telefono: "",
   equipos: "5 - 10 equipos de Climatización",
-  modelo: "Coordinación de Mis Contratistas",
 };
 
-export default function ContactForm() {
+export default function ContactForm({ selectedModel, setModel }) {
   const [formData, setFormData] = useState(INITIAL_FORM_STATE);
   const [botcheck, setBotcheck] = useState(false); // Honeypot anti-spam nativo de Web3Forms
   const [loading, setLoading] = useState(false);
@@ -59,13 +59,7 @@ export default function ContactForm() {
     setSuccess(false);
     setFormData(INITIAL_FORM_STATE);
     setErrorMessage("");
-  };
-
-  const handleWhatsAppClick = () => {
-    trackEvent("whatsapp_click", {
-      event_category: "Lead Generation",
-      event_label: "Boton WhatsApp Formulario",
-    });
+    setModel(SERVICE_MODELS.integral_service);
   };
 
   async function handleSubmit(e) {
@@ -111,7 +105,7 @@ export default function ContactForm() {
         trackEvent("lead_form_submitted", {
           empresa_email: formData.email,
           equipos_piloto: formData.equipos,
-          modelo_preferido: formData.modelo,
+          modelo_preferido: selectedModel,
         });
 
         setSuccess(true);
@@ -280,21 +274,19 @@ export default function ContactForm() {
                 <div className="model-radio-grid">
                   <div
                     className={`radio-card ${
-                      formData.modelo === "Coordinación de Mis Contratistas"
+                      selectedModel === SERVICE_MODELS.smart_service
                         ? "selected"
                         : ""
                     }`}
                     onClick={() =>
-                      !loading &&
-                      handleModeloSelect("Coordinación de Mis Contratistas")
+                      !loading && setModel(SERVICE_MODELS.smart_service)
                     }
                   >
                     <span className="radio-label">
                       Coordinación de Mis Contratistas
                     </span>
                     <div className="radio-circle">
-                      {formData.modelo ===
-                        "Coordinación de Mis Contratistas" && (
+                      {selectedModel === SERVICE_MODELS.smart_service && (
                         <div className="radio-dot" />
                       )}
                     </div>
@@ -302,20 +294,19 @@ export default function ContactForm() {
 
                   <div
                     className={`radio-card ${
-                      formData.modelo === "Gestión Integral Llave en Mano"
+                      selectedModel === SERVICE_MODELS.integral_service
                         ? "selected"
                         : ""
                     }`}
                     onClick={() =>
-                      !loading &&
-                      handleModeloSelect("Gestión Integral Llave en Mano")
+                      !loading && setModel(SERVICE_MODELS.integral_service)
                     }
                   >
                     <span className="radio-label">
                       Gestión Integral Llave en Mano
                     </span>
                     <div className="radio-circle">
-                      {formData.modelo === "Gestión Integral Llave en Mano" && (
+                      {selectedModel === SERVICE_MODELS.integral_service && (
                         <div className="radio-dot" />
                       )}
                     </div>
