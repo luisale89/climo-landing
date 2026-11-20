@@ -139,7 +139,7 @@ export default function Navbar() {
           {/* Botón CTA Principal */}
           <a
             href="#contacto"
-            className="nav-btn-cta"
+            className="btn-cta"
             onClick={() => handleNavClick("contacto")}
           >
             <span>Solicitar Demo</span>

@@ -149,8 +149,8 @@
 /* Botones de selección */
 .btn-model {
   width: 100%;
-  padding: 0.9rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: 0.75rem;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
@@ -167,18 +167,6 @@
 .btn-outline:hover {
   background: var(--climo-navy);
   color: #ffffff;
-}
-
-.btn-filled {
-  background: linear-gradient(135deg, #0e7b78 0%, var(--climo-purple) 100%);
-  border: none;
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(14, 66, 118, 0.2);
-}
-
-.btn-filled:hover {
-  opacity: 0.95;
-  transform: translateY(-1px);
 }
 
 /* 📱 Media Queries (Tablets y Móviles) */

@@ -159,8 +159,9 @@ export default function ContactForm() {
               <h3>¡Solicitud Recibida con Éxito!</h3>
               <p>
                 Un especialista técnico se pondrá en contacto al correo{" "}
-                <strong>{formData.email}</strong> para coordinar la evaluación y
-                despliegue del piloto.
+                <strong>{formData.email}</strong> o al teléfono{" "}
+                <strong>{formData.telefono}</strong> para coordinar la
+                evaluación y despliegue del piloto.
               </p>
               <button
                 type="button"
@@ -324,11 +325,7 @@ export default function ContactForm() {
 
               {/* Botones de Acción */}
               <div className="form-group full-width">
-                <button
-                  type="submit"
-                  className="btn-submit-cta"
-                  disabled={loading}
-                >
+                <button type="submit" className="btn-cta" disabled={loading}>
                   {loading ? (
                     <>
                       <Loader2

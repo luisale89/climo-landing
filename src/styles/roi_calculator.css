@@ -157,6 +157,7 @@
   padding: 1rem 1.25rem;
   display: flex;
   align-items: flex-start;
+  flex-direction: column;
   gap: 0.75rem;
   margin-top: 1rem;
 }
@@ -170,6 +171,11 @@
   font-size: 0.8rem;
   color: var(--text-muted);
   line-height: 1.45;
+}
+
+.info-box .info-msg {
+  color: var(--text-light);
+  color: var(--climo-teal);
 }
 
 /* Columna Derecha (Ahorros) */
@@ -293,28 +299,6 @@
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-muted);
-}
-
-/* Botón CTA */
-.btn-roi-cta {
-  display: block;
-  width: 100%;
-  background: var(--climo-navy);
-  color: #ffffff;
-  text-align: center;
-  padding: 1rem;
-  border-radius: 0.6rem;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.btn-roi-cta:hover {
-  background: #092c50;
-  transform: translateY(-2px);
 }
 
 /* Iconos auxiliares */

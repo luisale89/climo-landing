@@ -77,7 +77,7 @@ export default function Hero() {
           <div className="hero-cta-group">
             <a
               href="#contacto"
-              className="hero-btn-primary"
+              className="btn-cta"
               onClick={() => handleCtaClick("Solicitar Demo Piloto")}
             >
               <span>Solicitar Demo Piloto</span>

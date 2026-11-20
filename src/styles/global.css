@@ -125,6 +125,40 @@ p {
   transform: translateY(-4px);
 }
 
+/* Botón CTA Navbar */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient(90deg, #0e4276 0%, #139b97 52%, #5b21b6 100%);
+  color: #ffffff;
+  padding: 0.95rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 24px -6px rgba(14, 66, 118, 0.35);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.btn-cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 14px 28px -6px rgba(91, 33, 182, 0.35);
+}
+
+.btn-cta svg {
+  transition: transform 0.2s ease;
+}
+
+.btn-cta:hover svg {
+  transform: translateX(3px);
+}
+
 ::selection {
   background-color: #ffcc00;
   color: #000000;

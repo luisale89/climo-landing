@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Sliders, Wrench, Zap, Info } from "lucide-react";
+import { Sliders, Wrench, Zap, Info, ArrowRight } from "lucide-react";
 import { trackEvent } from "../utils/analytics";
 import "../styles/roi_calculator.css";
 
 export default function RoiCalculator() {
   const [sedes, setSedes] = useState(5);
   const [equiposPorSede, setEquiposPorSede] = useState(4);
-  const [mantenimiento, setMantenimiento] = useState(100);
-  const [energia, setEnergia] = useState(250);
+  const [mantenimiento, setMantenimiento] = useState(40);
+  const [energia, setEnergia] = useState(200);
 
   // Cálculos dinámicos
   const totalEquipos = sedes * equiposPorSede;
@@ -143,9 +143,9 @@ export default function RoiCalculator() {
                 </div>
                 <input
                   type="range"
-                  min="20"
-                  max="300"
-                  step="10"
+                  min="10"
+                  max="100"
+                  step="5"
                   value={mantenimiento}
                   onChange={(e) =>
                     handleSliderChange(
@@ -207,10 +207,17 @@ export default function RoiCalculator() {
                 <Info size={28} className="info-icon" />
                 <p>
                   El cálculo utiliza el costo estándar de implementación
-                  ($120/eq) y tarifa base ($12/mes). Para flotas de mayor
-                  volumen, la cuota mensual se reduce hasta a{" "}
-                  <strong>un 50% por equipo</strong>.
+                  ($120/eq) y tarifa base ($12/mes).{" "}
+                  <span className="info-msg">
+                    <strong>
+                      Para flotas de mayor volumen, la cuota mensual se reduce
+                      proporcionalmente.
+                    </strong>{" "}
+                  </span>{" "}
                 </p>
+                <a href="#contacto">
+                  <strong>Contactanos para mayor información.</strong>
+                </a>
               </div>
             </div>
 
@@ -268,8 +275,9 @@ export default function RoiCalculator() {
               </div>
 
               {/* Botón CTA */}
-              <a href="#contacto" className="btn-roi-cta">
-                Validar estas cifras en una Demo Piloto
+              <a href="#contacto" className="btn-cta">
+                <span>Validar estas cifras en una Demo Piloto</span>
+                <ArrowRight size={18} />
               </a>
             </div>
           </div>

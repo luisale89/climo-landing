@@ -152,7 +152,7 @@ export default function Solution() {
                 </li>
                 <li>
                   <Heart size={14} className="icon-red" />
-                  <span>Cálculo de Eficiencia y Salud operativa</span>
+                  <span>Eficiencia y Salud operativa</span>
                 </li>
                 <li>
                   <Wrench size={14} className="step-icon" />

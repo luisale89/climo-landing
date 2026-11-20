@@ -1,5 +1,5 @@
 import React from "react";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import "../styles/service-models.css";
 import { trackEvent } from "../utils/analytics";
 
@@ -96,10 +96,11 @@ export default function ServiceModels() {
             </ul>
 
             <button
-              className="btn-model btn-filled"
+              className="btn-cta"
               onClick={() => handleSelectModel("Gestión Integral de Flota")}
             >
-              Elegir Gestión Integral
+              <span>Elegir Gestión Integral</span>
+              <ArrowRight size={18} />
             </button>
           </div>
         </div>

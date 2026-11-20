@@ -145,7 +145,7 @@ export default function Footer() {
               </li>
               <li>
                 <Phone size={16} className="footer-icon" />
-                <span>+58 (424) 123-1212</span>
+                <span>+58 -</span>
               </li>
               <li>
                 <Mail size={16} className="footer-icon" />
@@ -198,7 +198,7 @@ export default function Footer() {
             className="scroll-top-btn"
             aria-label="Volver arriba"
           >
-            <ArrowUp size={16} />
+            <ArrowUp size={24} />
           </button>
         </div>
       </div>

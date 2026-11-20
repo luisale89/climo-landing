@@ -93,7 +93,7 @@
 /* Estado al scrolear: Oculta la barra superior y deja el navbar fijo con sombra */
 .header-wrapper.scrolled .top-utility-bar {
   /* max-height: 0; */
-  padding: 0.1rem 0;
+  padding: 0.3rem 0;
   transition: all 0.3s ease;
   /* opacity: 0; */
   border-bottom: none;
@@ -183,37 +183,10 @@
   border-radius: 2px;
 }
 
-/* Botón CTA Navbar */
-.nav-btn-cta {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(90deg, #0e4276 0%, #0e7b78 60%, #532379 100%);
-  color: #ffffff;
-  padding: 0.65rem 1.2rem;
-  border-radius: 0.6rem;
-  font-size: 0.88rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(14, 66, 118, 0.2);
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
-}
-
-.nav-btn-cta:hover {
-  opacity: 0.95;
-  transform: translateY(-1px);
-}
-
 /* 📱 Media Queries para Móviles */
 @media (max-width: 1024px) {
   .nav-links {
     display: none;
-  }
-  .nav-btn-cta {
-    font-size: 0.8rem;
-    padding: 0.55rem 1rem;
   }
   .nav-container {
     padding: 0.5rem 1.5rem;

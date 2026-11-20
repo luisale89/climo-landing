@@ -1,8 +1,16 @@
 import React from "react";
-import { Wrench, Cpu } from "lucide-react";
+import { Wrench, Cpu, ArrowRight } from "lucide-react";
+import { trackEvent } from "../utils/analytics";
 import "../styles/pricing.css";
 
 export default function Pricing() {
+  const handlePricingCtaClick = () => {
+    trackEvent("pricing_cta_click", {
+      event_category: "Lead Generation",
+      event_label: "Boton Centrado Pricing",
+    });
+  };
+
   return (
     <section id="precios" className="section-padding bg-subtle">
       <div className="container">
@@ -29,7 +37,7 @@ export default function Pricing() {
             <div className="price-amount">
               Desde $120 <small>USD / unidad (Pago único)</small>
             </div>
-            <p>
+            <p className="pricing-desc">
               Provisión e instalación de sensores, telemetría y módulos de
               control según las necesidades específicas de su infraestructura.
             </p>
@@ -46,13 +54,25 @@ export default function Pricing() {
             <div className="price-amount">
               $12 <small>USD / mes por unidad</small>
             </div>
-            <p>
-              Tarifa estándar de plataforma.{" "}
-              <strong>Descuentos por volumen:</strong> Para flotas de gran
-              escala, la cuota mensual se optimiza hasta un{" "}
-              <strong>50% por unidad</strong>.
+            <p className="pricing-desc">Tarifa estándar de plataforma.</p>
+            <p className="pricing-volume-note">
+              <strong>Tarifa Escalable por volúmen:</strong> Optimice su OPEX a
+              medida que suma unidades o sucursales a la plataforma, con
+              esquemas preferenciales para flotas comerciales e industriales.
             </p>
           </div>
+        </div>
+
+        {/* CTA Centrado debajo de ambas tarjetas */}
+        <div className="pricing-cta-wrapper">
+          <a
+            href="#contacto"
+            className="btn-cta"
+            onClick={handlePricingCtaClick}
+          >
+            <span>Cotizar flota o solicitar propuesta</span>
+            <ArrowRight size={18} />
+          </a>
         </div>
       </div>
     </section>

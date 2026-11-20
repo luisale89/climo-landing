@@ -33,6 +33,7 @@
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
   gap: 2rem;
   max-width: 1050px;
   margin: 0 auto;
@@ -47,13 +48,16 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  height: 100%;
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .pricing-card:hover {
   transform: translateY(-4px);
+  border-color: rgba(19, 155, 151, 0.35);
   box-shadow: var(--shadow-md);
 }
 
@@ -70,13 +74,15 @@
 .icon-blue {
   background: rgba(14, 66, 118, 0.08);
 }
+
 .icon-teal {
-  background: rgba(19, 155, 151, 0.1);
+  background: rgba(19, 155, 151, 0.12);
 }
 
 .icon-navy {
   color: var(--climo-navy);
 }
+
 .icon-teal-color {
   color: var(--climo-teal);
 }
@@ -87,7 +93,7 @@
   font-weight: 800;
   color: var(--climo-navy);
   background: rgba(14, 66, 118, 0.06);
-  padding: 0.3rem 0.75rem;
+  padding: 0.35rem 0.8rem;
   border-radius: 50px;
   margin-bottom: 1rem;
   letter-spacing: 0.5px;
@@ -95,7 +101,7 @@
 
 .teal-chip {
   color: var(--climo-teal);
-  background: rgba(19, 155, 151, 0.1);
+  background: rgba(19, 155, 151, 0.12);
 }
 
 .price-amount {
@@ -106,7 +112,7 @@
   line-height: 1.1;
   display: flex;
   align-items: baseline;
-  gap: 0.4rem;
+  gap: 0.45rem;
   flex-wrap: wrap;
 }
 
@@ -116,14 +122,29 @@
   color: var(--text-muted);
 }
 
-.pricing-card p {
-  font-size: 0.93rem;
+.pricing-desc,
+.pricing-volume-note {
+  font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.6;
+  margin-bottom: 0.85rem;
 }
 
-.pricing-card p strong {
+.pricing-volume-note:last-child,
+.pricing-desc:last-child {
+  margin-bottom: 0;
+}
+
+.pricing-volume-note strong {
   color: var(--climo-navy);
+  font-weight: 700;
+}
+
+/* Botón CTA Centrado entre ambas tarjetas */
+.pricing-cta-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
 }
 
 /* 📱 Media Queries para Móviles y Tablets */
@@ -143,5 +164,10 @@
 
   .price-amount {
     font-size: 1.85rem;
+  }
+
+  .pricing-cta-gradient {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
   }
 }
