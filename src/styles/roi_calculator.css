@@ -67,6 +67,7 @@
   font-size: 1.25rem;
   color: var(--climo-navy);
   font-weight: 800;
+  margin: 0px;
 }
 
 .resumen-tag {
@@ -137,10 +138,84 @@
   background: var(--climo-purple);
 }
 
-.flota-summary {
-  font-size: 0.85rem;
+.flota-summary-card {
+  background: rgba(19, 155, 151, 0.06);
+  border: 1px solid rgba(19, 155, 151, 0.22);
+  border-radius: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.flota-summary-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.9rem;
   color: var(--climo-navy);
-  margin: -0.5rem 0 1.75rem 0;
+}
+
+.tier-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--climo-navy);
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+}
+
+.flota-summary-pricing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(19, 155, 151, 0.25);
+}
+
+.saas-rate-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.saas-rate-display .old-rate {
+  text-decoration: line-through;
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+.saas-rate-display strong {
+  color: var(--climo-navy);
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+.discount-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #0f766e;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.28rem 0.65rem;
+  border-radius: 50px;
+}
+
+.base-rate-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .slider-meta {
@@ -159,7 +234,8 @@
   align-items: flex-start;
   flex-direction: column;
   gap: 0.75rem;
-  margin-top: 1rem;
+  margin: 2rem 3rem;
+  box-shadow: 0 4px 20px rgba(14, 66, 118, 0.2);
 }
 
 .info-icon {

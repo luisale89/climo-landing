@@ -84,7 +84,7 @@ export default function ContactForm({ selectedModel, setModel }) {
           import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ||
           "TU_ACCESS_KEY_DE_WEB3FORMS",
         subject: `Nuevo Lead Piloto CLIMO - ${formData.nombre}`,
-        from_name: "Landing Page CLIMO IoT",
+        from_name: "CLIMO LP FORM",
         replyto: formData.email,
         modelo: selectedModel,
         ...formData,

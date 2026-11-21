@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Sliders, Wrench, Zap, Info, ArrowRight } from "lucide-react";
+import { Sliders, Wrench, Zap, Info, ArrowRight, Tag } from "lucide-react";
 import { trackEvent } from "../utils/analytics";
 import "../styles/roi_calculator.css";
+
+const TARIFA_BASE_SAAS = 12;
 
 export default function RoiCalculator() {
   const [sedes, setSedes] = useState(5);
@@ -9,30 +11,43 @@ export default function RoiCalculator() {
   const [mantenimiento, setMantenimiento] = useState(40);
   const [energia, setEnergia] = useState(200);
 
-  // Cálculos dinámicos
+  // Cálculos dinámicos de flota
   const totalEquipos = sedes * equiposPorSede;
   const ahorroMantenimientoMes = totalEquipos * mantenimiento * 0.25;
   const ahorroEnergiaMes = totalEquipos * energia * 0.1;
   const ahorroMesTotal = ahorroMantenimientoMes + ahorroEnergiaMes;
   const ahorroBrutoAno = ahorroMesTotal * 12;
 
-  // Escenario de tarifa SaaS según volumen de flota
-  const tarifaSaas = totalEquipos >= 30 ? 6 : 12;
+  // Escalones fijos de tarifa SaaS por volumen de flota
+  const obtenerTramoSaas = (equipos) => {
+    if (equipos <= 10) return { tarifa: 12, rango: "1 - 10 equipos" };
+    if (equipos <= 30) return { tarifa: 9, rango: "11 - 30 equipos" };
+    if (equipos <= 90) return { tarifa: 8, rango: "31 - 90 equipos" };
+    if (equipos <= 199) return { tarifa: 7, rango: "91 - 200 equipos" };
+    return { tarifa: 6, rango: "200+ equipos" };
+  };
+
+  const { tarifa: tarifaSaas, rango: rangoVolumen } =
+    obtenerTramoSaas(totalEquipos);
+  const descuentoVolumenPct = Math.round(
+    ((TARIFA_BASE_SAAS - tarifaSaas) / TARIFA_BASE_SAAS) * 100,
+  );
+  const ahorroMensualSaaS = (TARIFA_BASE_SAAS - tarifaSaas) * totalEquipos;
+
   const setupFeeInicial = totalEquipos * 120;
-  const costoSaasAnual = totalEquipos * tarifaSaas * 12;
+  const costoSaasMes = totalEquipos * tarifaSaas;
+  const costoSaasAnual = costoSaasMes * 12;
 
   const ahorroNetoAno1 = ahorroBrutoAno - (setupFeeInicial + costoSaasAnual);
 
-  // Cálculo de Payback en meses
+  // Cálculo de Payback protegido contra flujo neto mensual <= 0
+  const flujoNetoMensual = ahorroMesTotal - costoSaasMes;
   const paybackMeses =
-    ahorroMesTotal > 0
-      ? (
-          setupFeeInicial /
-          (ahorroMesTotal - tarifaSaas * totalEquipos)
-        ).toFixed(1)
-      : "0";
+    flujoNetoMensual > 0
+      ? (setupFeeInicial / flujoNetoMensual).toFixed(1)
+      : null;
 
-  const handleSliderChange = (setter, value, paramName) => {
+  const handleSliderChange = (setter, value) => {
     setter(value);
   };
 
@@ -41,6 +56,8 @@ export default function RoiCalculator() {
       parametro: paramName,
       nuevo_valor: value,
       flota_total: totalEquipos,
+      tarifa_saas_unitaria: tarifaSaas,
+      descuento_volumen_pct: descuentoVolumenPct,
       ahorro_mtto_mes: ahorroMantenimientoMes,
       ahorro_energia_mes: ahorroEnergiaMes,
     });
@@ -83,11 +100,7 @@ export default function RoiCalculator() {
                   max="30"
                   value={sedes}
                   onChange={(e) =>
-                    handleSliderChange(
-                      setSedes,
-                      Number(e.target.value),
-                      "sedes",
-                    )
+                    handleSliderChange(setSedes, Number(e.target.value))
                   }
                   onMouseUp={(e) =>
                     handleMouseUp(Number(e.target.value), "sedes")
@@ -114,7 +127,6 @@ export default function RoiCalculator() {
                     handleSliderChange(
                       setEquiposPorSede,
                       Number(e.target.value),
-                      "equipos_por_sede",
                     )
                   }
                   onMouseUp={(e) =>
@@ -127,9 +139,39 @@ export default function RoiCalculator() {
                 />
               </div>
 
-              <div className="flota-summary">
-                Flota total a monitorear:{" "}
-                <strong>{totalEquipos} equipos</strong>
+              {/* Resumen de Flota + Tarifa y Descuento Aplicado */}
+              <div className="flota-summary-card">
+                <div className="flota-summary-top">
+                  <span>
+                    Flota total: <strong>{totalEquipos} equipos</strong>
+                  </span>
+                  <span className="tier-pill">Tramo: {rangoVolumen}</span>
+                </div>
+
+                <div className="flota-summary-pricing">
+                  <div className="saas-rate-display">
+                    <span>Cuota SaaS aplicada:</span>
+                    {descuentoVolumenPct > 0 && (
+                      <span className="old-rate">${TARIFA_BASE_SAAS}</span>
+                    )}
+                    <strong>${tarifaSaas} USD/mes</strong>
+                    <small>p/equipo</small>
+                  </div>
+
+                  {descuentoVolumenPct > 0 ? (
+                    <span className="discount-badge">
+                      <Tag size={13} />
+                      <span>
+                        -{descuentoVolumenPct}% por volumen (Ahorras $
+                        {ahorroMensualSaaS}/mes)
+                      </span>
+                    </span>
+                  ) : (
+                    <span className="base-rate-note">
+                      Tarifa estándar (descuentos desde 11 equipos)
+                    </span>
+                  )}
+                </div>
               </div>
 
               {/* Slider 3: Gasto Mantenimiento */}
@@ -148,11 +190,7 @@ export default function RoiCalculator() {
                   step="5"
                   value={mantenimiento}
                   onChange={(e) =>
-                    handleSliderChange(
-                      setMantenimiento,
-                      Number(e.target.value),
-                      "mantenimiento",
-                    )
+                    handleSliderChange(setMantenimiento, Number(e.target.value))
                   }
                   onMouseUp={(e) =>
                     handleMouseUp(Number(e.target.value), "mantenimiento")
@@ -183,11 +221,7 @@ export default function RoiCalculator() {
                   step="10"
                   value={energia}
                   onChange={(e) =>
-                    handleSliderChange(
-                      setEnergia,
-                      Number(e.target.value),
-                      "energia",
-                    )
+                    handleSliderChange(setEnergia, Number(e.target.value))
                   }
                   onMouseUp={(e) =>
                     handleMouseUp(Number(e.target.value), "energia")
@@ -200,24 +234,6 @@ export default function RoiCalculator() {
                 <div className="slider-meta">
                   <span>Impacto estimado: 10% ahorro por optimización</span>
                 </div>
-              </div>
-
-              {/* Nota Aclaratoria */}
-              <div className="info-box">
-                <Info size={28} className="info-icon" />
-                <p>
-                  El cálculo utiliza el costo estándar de implementación
-                  ($120/eq) y tarifa base ($12/mes).{" "}
-                  <span className="info-msg">
-                    <strong>
-                      Para flotas de mayor volumen, la cuota mensual se reduce
-                      proporcionalmente.
-                    </strong>{" "}
-                  </span>{" "}
-                </p>
-                <a href="#contacto">
-                  <strong>Contactanos para mayor información.</strong>
-                </a>
               </div>
             </div>
 
@@ -242,7 +258,7 @@ export default function RoiCalculator() {
                   <div className="mini-amount purple-text">
                     ${Math.round(ahorroEnergiaMes)} <span>/mes</span>
                   </div>
-                  <span className="mini-subtext">Por control de ocupación</span>
+                  <span className="mini-subtext">Por control optimizado</span>
                 </div>
               </div>
 
@@ -256,7 +272,9 @@ export default function RoiCalculator() {
                   <small>USD / año</small>
                 </div>
                 <div className="hero-card-footer">
-                  <span>Ahorro Neto Año 1 (Descontando instalación):</span>
+                  <span>
+                    Ahorro Neto Año 1 (Descontando instalación y SaaS):
+                  </span>
                   <strong>
                     ${Math.round(ahorroNetoAno1).toLocaleString("en-US")} USD
                   </strong>
@@ -270,7 +288,13 @@ export default function RoiCalculator() {
                   <p>Recuperación del costo de instalación inicial</p>
                 </div>
                 <div className="payback-value">
-                  ~{paybackMeses} <span>meses</span>
+                  {paybackMeses ? (
+                    <>
+                      ~{paybackMeses} <span>meses</span>
+                    </>
+                  ) : (
+                    <span>Evaluar caso</span>
+                  )}
                 </div>
               </div>
 
@@ -281,6 +305,20 @@ export default function RoiCalculator() {
               </a>
             </div>
           </div>
+        </div>
+        {/* Nota Aclaratoria */}
+        <div className="info-box">
+          <Info size={28} className="info-icon" />
+          <p>
+            El cálculo incluye implementación ($120/eq) y tarifa SaaS escalonada
+            por volumen desde $12/mes (1–9 eq) hasta $6/mes (200+ eq).{" "}
+          </p>
+          <p>
+            <strong>
+              Con su flota actual aplica un {descuentoVolumenPct}% de descuento
+              mensual.
+            </strong>
+          </p>
         </div>
       </div>
     </section>
