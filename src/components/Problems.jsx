@@ -14,8 +14,8 @@ export default function Problems() {
           </h2>
           <p className="problems-subtitle">
             Las empresas con múltiples sedes pierden capital a diario debido a
-            esquemas de climatización desconectados, correctivos tardíos y nula
-            visibilidad operativa
+            esquemas de climatización y aire acondicionado desconectados,
+            correctivos tardíos y nula visibilidad operativa.
           </p>
         </div>
 
@@ -27,9 +27,10 @@ export default function Problems() {
             </div>
             <h3>Alto Consumo Energético</h3>
             <p>
-              Equipos operando al 100% en áreas desatendidas o fuera de horario
-              comercial, disparando la factura eléctrica y acelerando el
-              desgaste mecánico sin aportar valor al negocio.
+              Equipos de aire acondicionado operando al 100% en áreas
+              desatendidas o fuera de horario comercial, disparando la factura
+              eléctrica y acelerando el desgaste mecánico sin aportar valor al
+              negocio.
             </p>
           </div>
 
@@ -39,9 +40,9 @@ export default function Problems() {
             </div>
             <h3>Mantenimiento a Ciegas</h3>
             <p>
-              Intervenciones y contratos fijos dictados por fechas en el
-              calendario, ignorando las horas de uso real del compresor y
-              gastando recursos en equipos que no lo necesitaban.
+              Intervenciones y contratos de mantenimiento fijos dictados por
+              fechas en el calendario, ignorando las horas de uso real del
+              compresor y gastando recursos en equipos que no lo necesitaban.
             </p>
           </div>
 

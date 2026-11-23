@@ -37,8 +37,8 @@ export default function ServiceModels({ onSelectModel }) {
                 Potenciamos a sus contratistas o personal técnico interno.
               </strong>{" "}
               CLIMO actúa como el cerebro operativo, controlando y monitoreando
-              la salud de la flota para coordinar el despacho de su equipo de
-              mantenimiento actual solo cuando se requiera.
+              la salud de la flota de climatización para coordinar el despacho
+              de su equipo de mantenimiento actual solo cuando se requiera.
             </p>
 
             <ul className="model-list">
@@ -75,8 +75,9 @@ export default function ServiceModels({ onSelectModel }) {
             <h3>Gestión Integral de Flota</h3>
             <p className="model-description">
               <strong>Nos hacemos cargo de todo.</strong> Asumimos la operación
-              completa: instalamos la telemetría, controlamos los equipos según
-              la ocupación y ejecutamos los mantenimientos preventivos y
+              completa de su climatización: instalamos la telemetría,
+              controlamos los equipos de aire acondicionado según la ocupación y
+              carga térmica REAL y ejecutamos los mantenimientos preventivos y
               correctivos bajo demanda.
             </p>
 

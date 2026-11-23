@@ -27,7 +27,8 @@ export default function Solution() {
           <p className="solution-subtitle">
             Nuestra plataforma combina sensores térmicos, eléctricos y de
             ocupación ambiental para optimizar automáticamente el funcionamiento
-            de la flotay coordinar las tareas técnicas.
+            de la flota de climatización y coordinar las tareas técnicas de
+            mantenimiento.
           </p>
         </div>
       </div>
@@ -121,7 +122,7 @@ export default function Solution() {
                 3. ANÁLISIS DE DATOS & NOTIFICACIONES
               </div>
               <Bell size={20} className="step-top-icon purple-icon" />
-              <h3>Cálculo del Rendimiento y operación</h3>
+              <h3>Cálculo del Rendimiento y Operación</h3>
               <p>
                 <strong>Comparación y detección de desviaciones</strong> de
                 rendimiento y notificación directa a contratistas o cuadrillas

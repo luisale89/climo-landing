@@ -14,13 +14,13 @@ const faqData = [
     question:
       "¿Cómo evita CLIMO que el aire se apague cuando hay pocos clientes y afecte la experiencia?",
     answer:
-      "El sistema no apaga los equipos de golpe; modula dinámicamente las consignas de temperatura y potencia basándose en la densidad térmica real y umbrales mínimos de confort configurados, manteniendo un microclima agradable sin desperdiciar energía en zonas vacías.",
+      "El sistema no apaga los equipos de aire acondicionado de golpe; modula dinámicamente las consignas de temperatura y potencia basándose en la densidad térmica real y umbrales mínimos de confort configurados, manteniendo un microclima agradable sin desperdiciar energía en zonas vacías.",
   },
   {
     question:
       "¿Cómo se integra CLIMO con nuestros contratistas de mantenimiento o técnicos fijos actuales?",
     answer:
-      "CLIMO actúa como el cerebro supervisor de su red. Cuando un equipo excede parámetros de desgaste o requiere atención, la plataforma emite un reporte técnico detallado y directo al proveedor o cuadrilla asignada, optimizando sus rutas y reduciendo visitas en vano.",
+      "CLIMO actúa como el cerebro supervisor de su red. Cuando un equipo de climatización o aire acondicionado excede parámetros de desgaste o requiere atención, la plataforma emite un reporte técnico detallado y directo al proveedor o cuadrilla asignada, optimizando sus rutas y reduciendo visitas en vano.",
   },
   {
     question:
@@ -38,7 +38,7 @@ const faqData = [
     question:
       "¿Qué sucede si la conexión a internet de la tienda se interrumpe?",
     answer:
-      "Nuestros nodos de telemetría poseen almacenamiento y procesamiento local (edge computing). Si la red cae, el sistema autónomo sigue regulando los equipos de manera local y sincroniza los datos históricos con la nube tan pronto se restablece la conexión.",
+      "Nuestros nodos de monitoreo y telemetría IoT poseen almacenamiento y procesamiento local (edge computing). Si la red cae, el sistema autónomo sigue regulando los equipos de manera local y sincroniza los datos históricos con la nube tan pronto se restablece la conexión.",
   },
 ];
 

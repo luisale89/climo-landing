@@ -60,17 +60,18 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-title">
-            Control Total y Automatizado para flotas de climatización comercial.{" "}
+            Monitoreo y control total para equipos de aire acondicionado y
+            flotas de climatización comercial.{" "}
             <span className="highlight-purple">Es hora de operar</span>{" "}
             <span className="highlight-teal">con Datos</span>
           </h1>
 
           <p className="hero-description">
             Elimine el gasto invisible por mantenimientos innecesarios y equipos
-            operando en espacios desatendidos.{" "}
+            de aire acondicionado operando en espacios desatendidos.{" "}
             <strong>
-              Transforme su infraestructura de climatización en una operación
-              inteligente guiada por telemetría 24/7.
+              Transforme su infraestructura de climatización y refrigeración en
+              una operación inteligente con monitoreo y telemetría 24/7.
             </strong>
           </p>
 

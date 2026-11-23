@@ -73,8 +73,8 @@ export default function RoiCalculator() {
             Calculadora de Retorno de Inversión (ROI)
           </h2>
           <p className="roi-subtitle">
-            Ajuste los valores de su flota para proyectar los ahorros al
-            integrar la solución CLIMO.
+            Ajuste los valores de su flota de climatización y aire acondicionado
+            para proyectar los ahorros al integrar la solución IoT de CLIMO.
           </p>
         </div>
 
