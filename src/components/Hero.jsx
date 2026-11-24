@@ -53,8 +53,8 @@ export default function Hero() {
           <div className="hero-top-badge">
             <Zap size={15} className="badge-icon" />
             <span>Solución IoT para:</span>
-            <strong className="typewriter-text">
-              {displayText}
+            <strong className="typewriter-text" translate="no">
+              <span>{displayText}</span>
               <span className="cursor">|</span>
             </strong>
           </div>
